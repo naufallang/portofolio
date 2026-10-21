@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>QuizByte — Tech quiz for CS students</title>
+<meta name="description" content="Timed multiple-choice quizzes on programming, data science, and web development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F1EEFF; --surface:#FFFFFF; --ink:#1D1640; --muted:#5E5980; --line:#DCD6F5;
+  --primary:#5B3DF5; --primary-ink:#FFFFFF; --primary-soft:#E6E0FF;
+  --good:#0F9F73; --good-soft:#D9F5EA; --bad:#E0464B; --bad-soft:#FDE3E4; --warn:#F2A20C;
+  --font:"Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#15112B; --surface:#201A3D; --ink:#EEEBFF; --muted:#A9A3CC; --line:#352D5C;
+    --primary:#8D78FF; --primary-ink:#140F2A; --primary-soft:#2C2457;
+    --good:#3DD3A0; --good-soft:#123D31; --bad:#FF7A7E; --bad-soft:#4A1C22;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15112B; --surface:#201A3D; --ink:#EEEBFF; --muted:#A9A3CC; --line:#352D5C;
+  --primary:#8D78FF; --primary-ink:#140F2A; --primary-soft:#2C2457;
+  --good:#3DD3A0; --good-soft:#123D31; --bad:#FF7A7E; --bad-soft:#4A1C22;
+}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%}
+body{margin:0; background:var(--bg); color:var(--ink); font:400 1rem/1.55 var(--font); -webkit-font-smoothing:antialiased}
+button{font:inherit; color:inherit}
+:focus-visible{outline:3px solid var(--primary); outline-offset:2px}
+.app{width:min(720px, 100% - 2rem); margin:0 auto; padding:1.5rem 0 3rem; min-height:100%; display:flex; flex-direction:column}
+.top{display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem}
+.logo{font-weight:700; font-size:1.2rem; display:flex; align-items:center; gap:.5rem; background:none; border:0; padding:0; cursor:pointer}
+.logo svg{width:30px; height:30px}
+.theme{background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:.35rem .85rem; font-size:.85rem; color:var(--muted); cursor:pointer}
+
+/* home */
+.home h1{font-size:clamp(2rem, 6vw, 3rem); line-height:1.08; letter-spacing:-.02em; margin:0 0 .75rem}
+.home > p{color:var(--muted); margin:0 0 2rem; font-size:1.1rem; max-width:36rem}
+.cats{display:grid; gap:.75rem}
+.cat{display:grid; grid-template-columns:52px minmax(0,1fr) auto; gap:1rem; align-items:center; text-align:left; background:var(--surface); border:2px solid var(--line); border-radius:18px; padding:1rem 1.1rem; cursor:pointer; transition:border-color .15s, transform .15s}
+.cat:hover{border-color:var(--primary); transform:translateY(-2px)}
+.cat .ic{width:52px; height:52px; border-radius:14px; display:grid; place-items:center; font-size:1.5rem; background:var(--primary-soft)}
+.cat h2{font-size:1.1rem; margin:0}
+.cat p{margin:.1rem 0 0; color:var(--muted); font-size:.9rem}
+.cat .best{font-size:.85rem; color:var(--muted); text-align:right; white-space:nowrap}
+.cat .best b{display:block; color:var(--ink); font-size:1.05rem}
+.opts{display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-top:1.5rem; padding:1rem 1.1rem; background:var(--surface); border-radius:14px; border:1px solid var(--line); flex-wrap:wrap}
+.opts label{display:flex; align-items:center; gap:.6rem; cursor:pointer}
+.opts input{width:20px; height:20px; accent-color:var(--primary)}
+.opts small{color:var(--muted)}
+
+/* quiz */
+.hud{display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:.75rem; font-size:.95rem; color:var(--muted)}
+.hud b{color:var(--ink)}
+.streak{color:var(--warn); font-weight:600}
+.progress{height:8px; background:var(--line); border-radius:99px; overflow:hidden; margin-bottom:1.5rem}
+.progress i{display:block; height:100%; background:var(--primary); border-radius:99px; transition:width .3s}
+.qcard{background:var(--surface); border-radius:22px; padding:clamp(1.25rem, 4vw, 2rem); border:1px solid var(--line)}
+.qmeta{display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem}
+.qnum{font-size:.9rem; color:var(--muted)}
+.timer{position:relative; width:46px; height:46px}
+.timer svg{width:46px; height:46px; transform:rotate(-90deg)}
+.timer circle{fill:none; stroke-width:5}
+.timer .track{stroke:var(--line)}
+.timer .fill{stroke:var(--primary); stroke-linecap:round; transition:stroke-dashoffset 1s linear, stroke .2s}
+.timer.low .fill{stroke:var(--bad)}
+.timer span{position:absolute; inset:0; display:grid; place-items:center; font-weight:600; font-size:.95rem}
+.qtext{font-size:clamp(1.2rem, 3.5vw, 1.5rem); line-height:1.35; font-weight:600; margin:0 0 1.5rem}
+.qtext code,.answer code,.review code{font-family:ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size:.9em; background:var(--primary-soft); padding:.05em .35em; border-radius:6px}
+.answers{display:grid; gap:.65rem}
+.answer{display:grid; grid-template-columns:34px minmax(0,1fr) 24px; gap:.85rem; align-items:center; text-align:left; background:var(--bg); border:2px solid transparent; border-radius:14px; padding:.85rem 1rem; cursor:pointer; transition:border-color .12s, background .12s}
+.answer:hover:not(:disabled){border-color:var(--primary)}
+.answer .k{width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:var(--surface); font-weight:600; font-size:.9rem; color:var(--muted)}
+.answer:disabled{cursor:default}
+.answer.correct{background:var(--good-soft); border-color:var(--good)}
+.answer.correct .k{background:var(--good); color:#fff}
+.answer.wrong{background:var(--bad-soft); border-color:var(--bad)}
+.answer.wrong .k{background:var(--bad); color:#fff}
+.answer.dim{opacity:.55}
+.answer .mark{font-weight:700}
+.feedback{margin-top:1.25rem; padding:1rem 1.1rem; border-radius:14px; background:var(--bg); display:none}
+.feedback.show{display:block}
+.feedback strong{display:block; margin-bottom:.2rem}
+.feedback.ok strong{color:var(--good)} .feedback.no strong{color:var(--bad)}
+.feedback p{margin:0; color:var(--muted)}
+.actions{display:flex; justify-content:flex-end; gap:.75rem; margin-top:1.25rem; flex-wrap:wrap}
+.btn{border:0; border-radius:12px; padding:.8rem 1.4rem; font-weight:600; cursor:pointer; background:var(--primary); color:var(--primary-ink)}
+.btn.ghost{background:transparent; color:var(--ink); border:2px solid var(--line)}
+.btn:hover{filter:brightness(1.06)}
+.hint{font-size:.85rem; color:var(--muted); margin-top:1rem; text-align:center}
+
+/* result */
+.result{text-align:center}
+.score-ring{width:180px; height:180px; margin:0 auto 1.25rem; position:relative}
+.score-ring svg{width:100%; height:100%; transform:rotate(-90deg)}
+.score-ring circle{fill:none; stroke-width:12}
+.score-ring .track{stroke:var(--line)} .score-ring .fill{stroke:var(--primary); stroke-linecap:round; transition:stroke-dashoffset 1s cubic-bezier(.2,.7,.2,1)}
+.score-ring div{position:absolute; inset:0; display:grid; place-content:center}
+.score-ring b{font-size:2.6rem; line-height:1}
+.score-ring small{color:var(--muted)}
+.result h2{font-size:1.6rem; margin:0 0 .35rem}
+.result > p{color:var(--muted); margin:0 0 1.5rem}
+.stats{display:grid; grid-template-columns:repeat(3, 1fr); gap:.6rem; margin-bottom:1.5rem}
+.stat{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:.9rem .5rem}
+.stat b{display:block; font-size:1.35rem}
+.stat span{font-size:.85rem; color:var(--muted)}
+.newbest{display:inline-block; background:var(--good-soft); color:var(--good); font-weight:600; border-radius:999px; padding:.3rem .9rem; margin-bottom:1rem; font-size:.9rem}
+.review{text-align:left; margin-top:2rem}
+.review h3{font-size:1.1rem; margin:0 0 .75rem}
+.review ol{list-style:none; margin:0; padding:0; display:grid; gap:.6rem}
+.review li{background:var(--surface); border:1px solid var(--line); border-left:5px solid var(--good); border-radius:12px; padding:.9rem 1rem}
+.review li.x{border-left-color:var(--bad)}
+.review .q{font-weight:600; margin:0 0 .35rem}
+.review .a{margin:0; font-size:.92rem; color:var(--muted)}
+.review .a b{color:var(--ink); font-weight:500}
+.review .e{margin:.4rem 0 0; font-size:.9rem; color:var(--muted)}
+[hidden]{display:none!important}
+@media (max-width:520px){ .cat{grid-template-columns:44px minmax(0,1fr)} .cat .ic{width:44px; height:44px} .cat .best{grid-column:2; text-align:left} .cat .best b{display:inline; margin-right:.3rem} }
+@media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <button class="logo" id="home-btn" type="button" aria-label="QuizByte home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--primary)"/><path d="M11 12.5a5 5 0 1 1 6.6 4.7c-1 .4-1.6 1.2-1.6 2.3v.5" stroke="var(--primary-ink)" stroke-width="2.6" fill="none" stroke-linecap="round"/><circle cx="16" cy="24" r="1.7" fill="var(--primary-ink)"/></svg>
+      QuizByte
+    </button>
+    <button class="theme" id="theme" type="button">Dark mode</button>
+  </div>
+
+  <!-- HOME -->
+  <section class="home" id="screen-home">
+    <h1>How well do you know your tech basics?</h1>
+    <p>Pick a topic and answer 8 questions. Faster correct answers earn more points, and every answer comes with an explanation.</p>
+    <div class="cats" id="cats"></div>
+    <div class="opts">
+      <label><input type="checkbox" id="timer-toggle" checked> Timer, 20 seconds per question</label>
+      <small>Keys 1–4 to answer, Enter to continue</small>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="screen-quiz" hidden>
+    <div class="hud">
+      <span id="hud-cat"></span>
+      <span><span class="streak" id="hud-streak"></span> Score <b id="hud-score">0</b></span>
+    </div>
+    <div class="progress" aria-hidden="true"><i id="bar" style="width:0"></i></div>
+    <div class="qcard">
+      <div class="qmeta">
+        <span class="qnum" id="qnum"></span>
+        <div class="timer" id="timer" aria-live="off">
+          <svg viewBox="0 0 46 46" aria-hidden="true"><circle class="track" cx="23" cy="23" r="19"/><circle class="fill" id="timer-fill" cx="23" cy="23" r="19" stroke-dasharray="119.4" stroke-dashoffset="0"/></svg>
+          <span id="timer-num">20</span>
+        </div>
+      </div>
+      <p class="qtext" id="qtext"></p>
+      <div class="answers" id="answers" role="group" aria-label="Answer choices"></div>
+      <div class="feedback" id="feedback" role="status" aria-live="polite"><strong id="fb-title"></strong><p id="fb-text"></p></div>
+      <div class="actions"><button class="btn" id="next" type="button" hidden>Next question</button></div>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section class="result" id="screen-result" hidden>
+    <div class="score-ring">
+      <svg viewBox="0 0 180 180" aria-hidden="true"><circle class="track" cx="90" cy="90" r="78"/><circle class="fill" id="ring" cx="90" cy="90" r="78" stroke-dasharray="490" stroke-dashoffset="490"/></svg>
+      <div><b id="r-correct">0/8</b><small>correct</small></div>
+    </div>
+    <div id="r-best" hidden><span class="newbest">New best score</span></div>
+    <h2 id="r-title"></h2>
+    <p id="r-sub"></p>
+    <div class="stats">
+      <div class="stat"><b id="r-score">0</b><span>Points</span></div>
+      <div class="stat"><b id="r-acc">0%</b><span>Accuracy</span></div>
+      <div class="stat"><b id="r-time">0s</b><span>Avg. answer time</span></div>
+    </div>
+    <div class="actions" style="justify-content:center">
+      <button class="btn" id="again" type="button">Play again</button>
+      <button class="btn ghost" id="choose" type="button">Choose another topic</button>
+    </div>
+    <div class="review"><h3>Review your answers</h3><ol id="review"></ol></div>
+  </section>
+</div>
+
+<script>
+const BANK = {
+  prog: { name:"Programming Fundamentals", icon:"💻", desc:"Algorithms, data structures, Python, Git", qs:[
+    {q:"What is the time complexity of binary search on a sorted array?", a:"O(log n)", w:["O(n)","O(n log n)","O(1)"], e:"Each step halves the search range, so the number of steps grows logarithmically with n."},
+    {q:"Which data structure follows the Last In, First Out (LIFO) principle?", a:"Stack", w:["Queue","Linked list","Hash table"], e:"A stack removes the most recently added item first, like a stack of plates."},
+    {q:"In Python, what does <code>len([1, [2, 3], 4])</code> return?", a:"3", w:["4","2","An error"], e:"The nested list [2, 3] counts as a single element, so the outer list has 3 elements."},
+    {q:"What does <code>print(7 // 2)</code> output in Python 3?", a:"3", w:["3.5","4","1"], e:"// is floor division: it divides and rounds down to the nearest integer."},
+    {q:"Which of these is NOT a primitive type in Java?", a:"String", w:["int","boolean","char"], e:"String is a class (a reference type). Java's primitives are byte, short, int, long, float, double, char, and boolean."},
+    {q:"What is the worst-case time complexity of quicksort?", a:"O(n²)", w:["O(n log n)","O(n)","O(log n)"], e:"If the pivot is always the smallest or largest element, each partition only removes one element, giving O(n²)."},
+    {q:"What is recursion?", a:"A function that calls itself", w:["A loop that never ends","A variable defined inside a loop","A function that returns another function"], e:"A recursive function solves a problem by calling itself on smaller inputs until it reaches a base case."},
+    {q:"Which Git command creates a new branch and switches to it?", a:"<code>git checkout -b &lt;name&gt;</code>", w:["<code>git branch -m &lt;name&gt;</code>","<code>git merge &lt;name&gt;</code>","<code>git init &lt;name&gt;</code>"], e:"checkout -b creates and switches in one step. Newer Git versions also offer git switch -c."}
+  ]},
+  data: { name:"Data Science", icon:"📊", desc:"Statistics, machine learning, pandas", qs:[
+    {q:"Which measure of central tendency is the most robust to outliers?", a:"Median", w:["Mean","Range","Standard deviation"], e:"The median depends only on the middle value, so extreme values barely affect it. Range and standard deviation measure spread, not center."},
+    {q:"What does it mean when a model is overfitting?", a:"It performs well on training data but poorly on new data", w:["It performs poorly on both training and new data","It trains too slowly","It uses too few features"], e:"An overfit model memorizes noise in the training set instead of learning patterns that generalize."},
+    {q:"Which pandas method shows the first 5 rows of a DataFrame by default?", a:"<code>df.head()</code>", w:["<code>df.top()</code>","<code>df.first()</code>","<code>df.show()</code>"], e:"head() returns the first n rows, with n = 5 by default. tail() returns the last rows."},
+    {q:"Which of these is an unsupervised learning algorithm?", a:"K-means clustering", w:["Linear regression","Logistic regression","Decision tree classifier"], e:"K-means groups data without labels. The others learn from labeled examples, which makes them supervised."},
+    {q:"A correlation coefficient of −0.9 indicates…", a:"A strong negative linear relationship", w:["A weak negative relationship","No relationship","A strong positive relationship"], e:"Values close to −1 mean that as one variable increases, the other decreases in a nearly linear way."},
+    {q:"Why do we split data into training and test sets?", a:"To estimate how well the model generalizes to unseen data", w:["To make training faster","To remove missing values","To increase the size of the dataset"], e:"The test set acts as new data the model has never seen, giving an honest estimate of real-world performance."},
+    {q:"How is precision calculated?", a:"TP / (TP + FP)", w:["TP / (TP + FN)","(TP + TN) / total","FP / (FP + TN)"], e:"Precision is the share of predicted positives that are actually positive. TP / (TP + FN) is recall."},
+    {q:"Which chart is best for showing the distribution of a single numeric variable?", a:"Histogram", w:["Pie chart","Line chart","Scatter plot"], e:"A histogram groups values into bins and shows how many fall in each, revealing the shape of the distribution."}
+  ]},
+  web: { name:"Web Development", icon:"🌐", desc:"HTML, CSS, JavaScript, HTTP", qs:[
+    {q:"What does CSS stand for?", a:"Cascading Style Sheets", w:["Creative Style System","Computer Styled Sections","Colorful Style Syntax"], e:"\"Cascading\" refers to how multiple style rules are combined and prioritized."},
+    {q:"Which HTTP status code means the requested resource was not found?", a:"404", w:["200","301","500"], e:"200 is OK, 301 is a permanent redirect, and 500 is an internal server error."},
+    {q:"Which HTTP method is typically used to create a new resource in a REST API?", a:"POST", w:["GET","DELETE","HEAD"], e:"POST sends data to the server to create a resource. GET retrieves data without changing it."},
+    {q:"In JavaScript, what does <code>typeof null</code> return?", a:"<code>\"object\"</code>", w:["<code>\"null\"</code>","<code>\"undefined\"</code>","<code>\"number\"</code>"], e:"This is a long-standing quirk from the first version of JavaScript that was kept for backward compatibility."},
+    {q:"What does <code>===</code> compare in JavaScript?", a:"Both value and type", w:["Only value","Only type","Memory size"], e:"=== is strict equality: no type conversion. So 5 === \"5\" is false, while 5 == \"5\" is true."},
+    {q:"What is the result of <code>\"5\" + 3</code> in JavaScript?", a:"<code>\"53\"</code>", w:["<code>8</code>","<code>\"8\"</code>","<code>NaN</code>"], e:"When one operand is a string, + concatenates, so 3 is converted to \"3\"."},
+    {q:"Which CSS property controls the space between an element's content and its border?", a:"padding", w:["margin","gap","border-spacing"], e:"Padding is inside the border. Margin is the space outside the border."},
+    {q:"Which HTML element represents the most important heading on a page?", a:"<code>&lt;h1&gt;</code>", w:["<code>&lt;h6&gt;</code>","<code>&lt;header&gt;</code>","<code>&lt;title&gt;</code>"], e:"Headings go from h1 (most important) to h6. <title> sets the browser tab text, not a visible heading."}
+  ]}
+};
+BANK.mix = { name:"Mixed", icon:"🎲", desc:"8 random questions from every topic", qs:null };
+
+const TIME = 20, $ = id => document.getElementById(id);
+let state = null, tick = null;
+
+function shuffle(a){ a = a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function getBest(k){ try{ return Number(localStorage.getItem('qb-best-'+k)) || 0; }catch(e){ return 0; } }
+function setBest(k,v){ try{ localStorage.setItem('qb-best-'+k, v); }catch(e){} }
+function strip(html){ const d=document.createElement('div'); d.innerHTML=html; return d.textContent; }
+
+function show(id){ ['home','quiz','result'].forEach(s=>$('screen-'+s).hidden = s!==id); window.scrollTo(0,0); }
+
+function renderHome(){
+  $('cats').innerHTML = '';
+  ['prog','data','web','mix'].forEach(k=>{
+    const c = BANK[k], best = getBest(k);
+    const b = document.createElement('button');
+    b.className='cat'; b.type='button';
+    b.innerHTML = `<span class="ic" aria-hidden="true">${c.icon}</span><span><h2>${c.name}</h2><p>${c.desc}</p></span><span class="best">${best?`<b>${best}</b>best`:'Not played yet'}</span>`;
+    b.addEventListener('click',()=>start(k));
+    $('cats').appendChild(b);
+  });
+  show('home');
+}
+
+function start(k){
+  const pool = k==='mix' ? shuffle(['prog','data','web'].flatMap(c=>BANK[c].qs)).slice(0,8) : shuffle(BANK[k].qs);
+  state = { key:k, qs:pool.map(q=>({...q, opts:shuffle([q.a, ...q.w])})), i:0, score:0, streak:0, log:[], timed:$('timer-toggle').checked };
+  $('hud-cat').textContent = BANK[k].name;
+  $('timer').hidden = !state.timed;
+  show('quiz'); renderQ();
+}
+
+function renderQ(){
+  const s = state, q = s.qs[s.i];
+  $('qnum').textContent = `Question ${s.i+1} of ${s.qs.length}`;
+  $('bar').style.width = (s.i / s.qs.length * 100) + '%';
+  $('qtext').innerHTML = q.q;
+  $('hud-score').textContent = s.score;
+  $('hud-streak').textContent = s.streak >= 2 ? `🔥 ${s.streak} in a row ·` : '';
+  $('feedback').className = 'feedback'; $('next').hidden = true;
+  $('answers').innerHTML = '';
+  q.opts.forEach((o,idx)=>{
+    const b = document.createElement('button');
+    b.className='answer'; b.type='button';
+    b.innerHTML = `<span class="k">${idx+1}</span><span>${o}</span><span class="mark"></span>`;
+    b.addEventListener('click',()=>answer(idx));
+    $('answers').appendChild(b);
+  });
+  s.t0 = performance.now(); s.locked = false;
+  if(s.timed) startTimer();
+}
+
+function startTimer(){
+  clearInterval(tick);
+  let left = TIME; const fill = $('timer-fill'), C = 119.4;
+  const draw = ()=>{ $('timer-num').textContent = left; fill.style.strokeDashoffset = C*(1-left/TIME); $('timer').classList.toggle('low', left<=5); };
+  draw();
+  tick = setInterval(()=>{ left--; draw(); if(left<=0){ clearInterval(tick); answer(-1); } },1000);
+}
+
+function answer(idx){
+  const s = state; if(s.locked) return; s.locked = true; clearInterval(tick);
+  const q = s.qs[s.i], secs = Math.min(TIME, (performance.now()-s.t0)/1000);
+  const chosen = idx>=0 ? q.opts[idx] : null, ok = chosen === q.a;
+  let pts = 0;
+  if(ok){ s.streak++; pts = 100 + (s.timed ? Math.round(50*(1-secs/TIME)) : 0) + (s.streak>=3 ? 25 : 0); s.score += pts; } else s.streak = 0;
+  s.log.push({q:q.q, a:q.a, chosen, ok, e:q.e, secs});
+  [...$('answers').children].forEach((b,i)=>{
+    b.disabled = true;
+    const o = q.opts[i];
+    if(o===q.a){ b.classList.add('correct'); b.querySelector('.mark').textContent='✓'; }
+    else if(i===idx){ b.classList.add('wrong'); b.querySelector('.mark').textContent='✕'; }
+    else b.classList.add('dim');
+  });
+  $('fb-title').textContent = ok ? `Correct! +${pts} points` : (idx<0 ? "Time's up" : 'Not quite');
+  $('fb-text').innerHTML = q.e;
+  $('feedback').className = 'feedback show ' + (ok?'ok':'no');
+  $('hud-score').textContent = s.score;
+  $('next').textContent = s.i === s.qs.length-1 ? 'See results' : 'Next question';
+  $('next').hidden = false; $('next').focus();
+}
+
+function next(){ const s=state; if(s.i < s.qs.length-1){ s.i++; renderQ(); } else finish(); }
+
+function finish(){
+  const s = state, n = s.qs.length, correct = s.log.filter(l=>l.ok).length;
+  const acc = Math.round(correct/n*100), avg = (s.log.reduce((t,l)=>t+l.secs,0)/n).toFixed(1);
+  const prev = getBest(s.key), isBest = s.score > prev;
+  if(isBest) setBest(s.key, s.score);
+  $('bar').style.width = '100%';
+  $('r-correct').textContent = `${correct}/${n}`;
+  $('r-score').textContent = s.score; $('r-acc').textContent = acc+'%'; $('r-time').textContent = avg+'s';
+  $('r-best').hidden = !(isBest && s.score>0);
+  const [title, sub] = acc===100 ? ['Perfect score','You got every question right.'] : acc>=75 ? ['Great job','You clearly know this topic well.'] : acc>=50 ? ['Good effort','Check the review below to fill the gaps.'] : ['Keep practicing','Read the explanations below and try again.'];
+  $('r-title').textContent = title; $('r-sub').textContent = `${sub} Topic: ${BANK[s.key].name}.`;
+  $('review').innerHTML = s.log.map((l,i)=>`<li class="${l.ok?'':'x'}"><p class="q">${i+1}. ${l.q}</p><p class="a">${l.ok?'Your answer: <b>'+l.a+'</b>':`Your answer: <b>${l.chosen ?? 'No answer'}</b> · Correct: <b>${l.a}</b>`}</p><p class="e">${l.e}</p></li>`).join('');
+  show('result');
+  const ring = $('ring'); ring.style.strokeDashoffset = 490;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{ ring.style.strokeDashoffset = 490*(1-correct/n); }));
+}
+
+$('next').addEventListener('click', next);
+$('again').addEventListener('click', ()=>start(state.key));
+$('choose').addEventListener('click', ()=>{ clearInterval(tick); renderHome(); });
+$('home-btn').addEventListener('click', ()=>{ clearInterval(tick); renderHome(); });
+document.addEventListener('keydown', e=>{
+  if($('screen-quiz').hidden || e.metaKey || e.ctrlKey || e.altKey) return;
+  if(!state.locked && /^[1-4]$/.test(e.key)){ const i = Number(e.key)-1; if(i < state.qs[state.i].opts.length) answer(i); }
+  else if(state.locked && e.key==='Enter' && document.activeElement!==$('next')){ e.preventDefault(); next(); }
+});
+
+const root = document.documentElement;
+function themeLabel(){ const d = (root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))==='dark'; $('theme').textContent = d ? 'Light mode' : 'Dark mode'; }
+try{ const t=localStorage.getItem('qb-theme'); if(t) root.dataset.theme=t; }catch(e){}
+$('theme').addEventListener('click',()=>{
+  const cur = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  root.dataset.theme = cur==='dark'?'light':'dark';
+  try{ localStorage.setItem('qb-theme', root.dataset.theme); }catch(e){}
+  themeLabel();
+});
+themeLabel(); renderHome();
+</script>
+</body>
+</html>

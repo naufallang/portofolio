@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Purchase | gameStoB</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script defer src="scripts/script.js"></script>
+  </head>
+  <body class="page-shell">
+    
+    <div class="mobile-menu-backdrop" data-mobile-backdrop></div>
+    <aside class="mobile-menu" data-mobile-menu>
+      <header>
+        <a class="brand-mark" href="index.html"><span class="brand-icon">G</span>gameStoB</a>
+        <button class="menu-button" data-menu-close aria-label="Close navigation">✕</button>
+      </header>
+      <nav><a class="mobile-link " href="index.html">Home</a>
+<a class="mobile-link " href="catalog.html">Catalog</a>
+<a class="mobile-link is-active" href="purchase.html">Purchase</a>
+<a class="mobile-link " href="about.html">About Us</a>
+<a class="mobile-link " href="locations.html">Locations</a></nav>
+    </aside>
+
+    <header class="site-header">
+      <div class="container header-row">
+        <div class="header-main">
+          <a class="brand-mark" href="index.html"><span class="brand-icon">G</span>gameStoB</a>
+          <nav class="nav-links" aria-label="Main navigation"><a class="nav-link " href="index.html">Home</a>
+<a class="nav-link " href="catalog.html">Catalog</a>
+<a class="nav-link is-active" href="purchase.html">Purchase</a>
+<a class="nav-link " href="about.html">About Us</a>
+<a class="nav-link " href="locations.html">Locations</a></nav>
+        </div>
+        <div class="header-tools">
+          <a class="icon-button icon-button--search icon-button--desktop" href="catalog.html" aria-label="Search"></a>
+          <a class="icon-button icon-button--desktop" aria-label="Cart" href="purchase.html">🛒</a>
+          <button class="menu-button" data-menu-open aria-label="Open navigation">☰</button>
+        </div>
+      </div>
+    </header>
+    <main class="page-section">
+      <div class="container">
+        <section class="stack reveal page-intro">
+          <span class="eyebrow">Secure Checkout</span>
+          <h1 class="display-title">Complete your game purchase.</h1>
+          <p class="lede">Choose a title, review the order summary, and submit your payment details. The form uses JavaScript validation before the order is accepted.</p>
+        </section>
+
+        <section class="purchase-layout">
+          <div>
+            <div class="surface-card checkout-card reveal">
+              <h2 class="card-title">Customer and Payment Details</h2>
+              <form class="form-grid" data-checkout-form novalidate>
+                <div class="form-grid two">
+                  <div class="field" data-field="full-name">
+                    <label for="full-name">Full Name</label>
+                    <input id="full-name" name="full-name" type="text" placeholder="e.g. Muhammad Naufal" />
+                    <div class="error-message" data-error-for="full-name"></div>
+                  </div>
+                  <div class="field" data-field="email">
+                    <label for="email">Email Address</label>
+                    <input id="email" name="email" type="email" placeholder="name@example.com" />
+                    <div class="error-message" data-error-for="email"></div>
+                  </div>
+                </div>
+
+                <div class="form-grid two">
+                  <div class="field" data-field="product">
+                    <label for="product-select">Selected Game</label>
+                    <select id="product-select" name="product">
+                      <option value="">Choose a game</option>
+                    </select>
+                    <div class="error-message" data-error-for="product"></div>
+                  </div>
+                  <div class="field" data-field="quantity">
+                    <label for="quantity">Quantity</label>
+                    <input id="quantity" name="quantity" type="number" min="1" max="5" value="1" />
+                    <div class="error-message" data-error-for="quantity"></div>
+                  </div>
+                </div>
+
+                <div class="form-grid two">
+                  <div class="field">
+                    <span class="group-label">Delivery Type</span>
+                    <div class="choice-row">
+                      <label class="choice"><input type="radio" name="delivery" value="Digital Key" checked /> Digital Key</label>
+                      <label class="choice"><input type="radio" name="delivery" value="Gift Code" /> Gift Code</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <span class="group-label">Payment Method</span>
+                    <div class="choice-row">
+                      <label class="choice"><input type="radio" name="payment-method" value="Credit Card" checked /> Credit Card</label>
+                      <label class="choice"><input type="radio" name="payment-method" value="Virtual Account" /> Virtual Account</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field" data-field="card-number">
+                  <label for="card-number">Card Number</label>
+                  <input id="card-number" name="card-number" type="text" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000" />
+                  <div class="error-message" data-error-for="card-number"></div>
+                </div>
+
+                <div class="form-grid two">
+                  <div class="field" data-field="expiry">
+                    <label for="exp-month">Expiration Date</label>
+                    <div class="form-grid two">
+                      <select id="exp-month" name="exp-month">
+                        <option value="">Month</option>
+                        <option value="1">01</option><option value="2">02</option><option value="3">03</option><option value="4">04</option>
+                        <option value="5">05</option><option value="6">06</option><option value="7">07</option><option value="8">08</option>
+                        <option value="9">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                      </select>
+                      <select id="exp-year" name="exp-year">
+                        <option value="">Year</option>
+                        <option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option><option value="2031">2031</option>
+                      </select>
+                    </div>
+                    <div class="error-message" data-error-for="expiry"></div>
+                  </div>
+                  <div class="field" data-field="cvv">
+                    <label for="cvv">CVV</label>
+                    <input id="cvv" name="cvv" type="password" inputmode="numeric" maxlength="4" placeholder="123" />
+                    <div class="error-message" data-error-for="cvv"></div>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="notes">Order Notes</label>
+                  <textarea id="notes" rows="4" placeholder="Optional note for your order"></textarea>
+                </div>
+
+                <div class="field" data-field="terms">
+                  <label class="choice"><input id="terms" name="terms" type="checkbox" /> I agree to the payment terms and refund policy.</label>
+                  <div class="error-message" data-error-for="terms"></div>
+                </div>
+
+                <button class="button button-primary" type="submit">Place Secure Order</button>
+                <div class="success-banner" data-success-banner>Order draft submitted successfully. Your game key will be sent after payment verification.</div>
+              </form>
+            </div>
+          </div>
+
+          <aside class="surface-card summary-card reveal">
+            <span class="eyebrow">Order Summary</span>
+            <h2 class="card-title">Checkout Summary</h2>
+            <div class="summary-cart-list" data-summary-items><p class="product-copy">Select a game to see the summary.</p></div>
+            <div class="summary-row"><span>Items</span><strong data-summary-count>0 game</strong></div>
+            <div class="summary-row"><span>Delivery</span><strong data-summary-delivery>Digital Key</strong></div>
+            <div class="summary-row"><span>Subtotal</span><strong data-summary-subtotal>$0.00</strong></div>
+            <div class="summary-row summary-total"><span>Total</span><span data-summary-total>$0.00</span></div>
+            <div class="stack page-intro"><a class="button button-secondary" href="catalog.html">Back to Catalog</a></div>
+          </aside>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer unique-footer">
+      <div class="footer-ambient footer-ambient-one"></div>
+      <div class="footer-ambient footer-ambient-two"></div>
+      <div class="container">
+        <div class="footer-hub">
+          <section class="footer-brand-card">
+            <a class="footer-brand" href="index.html"><span class="brand-icon">G</span><span>gameStoB</span></a>
+            <p class="footer-copy">Level up your library with official games, curated recommendations, smooth checkout, and digital delivery made for PC and console players.</p>
+            <div class="footer-status-row" aria-label="Store highlights">
+              <span><i></i> Store Online</span>
+              <span>24/7 Catalog</span>
+              <span>Secure Key</span>
+            </div>
+            <div class="footer-socials" aria-label="Social links">
+              <a href="about.html" aria-label="Instagram">IG</a>
+              <a href="locations.html" aria-label="Discord">DC</a>
+              <a href="catalog.html" aria-label="YouTube">YT</a>
+            </div>
+          </section>
+
+          <section class="footer-menu-card">
+            <h3 class="footer-title">Explore</h3>
+            <div class="footer-links">
+              <a class="footer-link" href="index.html">Home</a>
+              <a class="footer-link" href="catalog.html">Catalog</a>
+              <a class="footer-link" href="purchase.html">Purchase</a>
+            </div>
+          </section>
+
+          <section class="footer-menu-card">
+            <h3 class="footer-title">Company</h3>
+            <div class="footer-links">
+              <a class="footer-link" href="about.html">About Us</a>
+              <a class="footer-link" href="locations.html">Locations</a>
+              <span class="footer-link">support@gamestob.id</span>
+            </div>
+          </section>
+
+          <section class="footer-level-card">
+            <span class="eyebrow">Player Support</span>
+            <h3>Ready for your next session?</h3>
+            <p>Daily help desk, secure payment flow, and instant digital key delivery for your next game night.</p>
+            <a class="footer-cta" href="catalog.html">Browse Deals</a>
+          </section>
+        </div>
+
+        <div class="footer-console" aria-label="Popular categories">
+          <span class="console-label">Now Loading</span>
+          <div class="footer-genre-track">
+            <span>Action RPG</span>
+            <span>Racing</span>
+            <span>Horror</span>
+            <span>Strategy</span>
+            <span>Co-op</span>
+            <span>Indie</span>
+            <span>Fighting</span>
+            <span>DLC</span>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© 2026 gameStoB. Built for digital game collectors.</span>
+          <div class="footer-bottom-links">
+            <a href="purchase.html">Checkout</a>
+            <a href="locations.html">Stores</a>
+            <a href="about.html">Community</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

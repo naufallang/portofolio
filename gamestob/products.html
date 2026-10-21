@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Products | gameStoB</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script defer src="scripts/script.js"></script>
+  </head>
+  <body class="page-shell">
+    
+    <div class="mobile-menu-backdrop" data-mobile-backdrop></div>
+    <aside class="mobile-menu" data-mobile-menu>
+      <header>
+        <a class="brand-mark" href="index.html"><span class="brand-icon">G</span>gameStoB</a>
+        <button class="menu-button" data-menu-close aria-label="Close navigation">✕</button>
+      </header>
+      <nav><a class="mobile-link " href="index.html">Home</a>
+<a class="mobile-link is-active" href="catalog.html">Catalog</a>
+<a class="mobile-link " href="purchase.html">Purchase</a>
+<a class="mobile-link " href="about.html">About Us</a>
+<a class="mobile-link " href="locations.html">Locations</a></nav>
+    </aside>
+
+    <header class="site-header">
+      <div class="container header-row">
+        <div class="header-main">
+          <a class="brand-mark" href="index.html"><span class="brand-icon">G</span>gameStoB</a>
+          <nav class="nav-links" aria-label="Main navigation"><a class="nav-link " href="index.html">Home</a>
+<a class="nav-link is-active" href="catalog.html">Catalog</a>
+<a class="nav-link " href="purchase.html">Purchase</a>
+<a class="nav-link " href="about.html">About Us</a>
+<a class="nav-link " href="locations.html">Locations</a></nav>
+        </div>
+        <div class="header-tools">
+          <a class="icon-button icon-button--search icon-button--desktop" href="catalog.html" aria-label="Search"></a>
+          <a class="icon-button icon-button--desktop" aria-label="Cart" href="purchase.html">🛒</a>
+          <button class="menu-button" data-menu-open aria-label="Open navigation">☰</button>
+        </div>
+      </div>
+    </header>
+    <main class="page-section">
+      <div class="container catalog-shell">
+        <section class="catalog-hero-strip reveal">
+          <span class="eyebrow">Expanded Catalog</span>
+          <h1 class="display-title">Browse games, DLC, and curated categories.</h1>
+          <p class="lede">Use search, filters, and sorting to explore the full gameStoB catalog. Each card includes a category, platform, short description, tags, and price.</p>
+          <div class="catalog-summary-row">
+            <div class="catalog-stat"><strong>22</strong><span>Total products</span></div>
+            <div class="catalog-stat"><strong>12+</strong><span>Genre categories</span></div>
+            <div class="catalog-stat"><strong>3</strong><span>DLC highlights</span></div>
+            <div class="catalog-stat"><strong>Responsive</strong><span>Desktop and mobile</span></div>
+          </div>
+        </section>
+
+        <section class="stack reveal page-intro--center">
+          <span class="eyebrow">Filter and Search</span>
+          <h2 class="section-title">Find the right game faster</h2>
+          <div class="catalog-tools">
+            <label class="field slim"><span>Search</span><input id="catalogSearch" type="search" placeholder="Search title, category, or genre" /></label>
+            <label class="field slim"><span>Sort</span><select id="catalogSort"><option value="featured">Featured</option><option value="name">Name A-Z</option><option value="low">Price Low-High</option><option value="high">Price High-Low</option></select></label>
+          </div>
+          <div class="filters" data-filter-bar>
+            <button class="filter-chip is-active" data-filter="all">All</button>
+            <button class="filter-chip" data-filter="action">Action</button>
+            <button class="filter-chip" data-filter="rpg">RPG</button>
+            <button class="filter-chip" data-filter="stealth">Stealth</button>
+            <button class="filter-chip" data-filter="racing">Racing</button>
+            <button class="filter-chip" data-filter="moba">MOBA</button>
+            <button class="filter-chip" data-filter="strategy">Strategy</button>
+            <button class="filter-chip" data-filter="horror">Horror</button>
+            <button class="filter-chip" data-filter="indie">Indie</button>
+            <button class="filter-chip" data-filter="coop">Co-op</button>
+            <button class="filter-chip" data-filter="fighting">Fighting</button>
+            <button class="filter-chip" data-filter="sports">Sports</button>
+            <button class="filter-chip" data-filter="puzzle">Puzzle</button>
+            <button class="filter-chip" data-filter="dlc">DLC</button>
+          </div>
+        </section>
+
+        <p class="catalog-empty" data-empty hidden>No titles matched your filter.</p>
+        <section class="product-grid" aria-live="polite" data-product-grid></section>
+      </div>
+    </main>
+    <footer class="site-footer unique-footer">
+      <div class="footer-ambient footer-ambient-one"></div>
+      <div class="footer-ambient footer-ambient-two"></div>
+      <div class="container">
+        <div class="footer-hub">
+          <section class="footer-brand-card">
+            <a class="footer-brand" href="index.html"><span class="brand-icon">G</span><span>gameStoB</span></a>
+            <p class="footer-copy">Level up your library with official games, curated recommendations, smooth checkout, and digital delivery made for PC and console players.</p>
+            <div class="footer-status-row" aria-label="Store highlights">
+              <span><i></i> Store Online</span>
+              <span>24/7 Catalog</span>
+              <span>Secure Key</span>
+            </div>
+            <div class="footer-socials" aria-label="Social links">
+              <a href="about.html" aria-label="Instagram">IG</a>
+              <a href="locations.html" aria-label="Discord">DC</a>
+              <a href="catalog.html" aria-label="YouTube">YT</a>
+            </div>
+          </section>
+
+          <section class="footer-menu-card">
+            <h3 class="footer-title">Explore</h3>
+            <div class="footer-links">
+              <a class="footer-link" href="index.html">Home</a>
+              <a class="footer-link" href="catalog.html">Catalog</a>
+              <a class="footer-link" href="purchase.html">Purchase</a>
+            </div>
+          </section>
+
+          <section class="footer-menu-card">
+            <h3 class="footer-title">Company</h3>
+            <div class="footer-links">
+              <a class="footer-link" href="about.html">About Us</a>
+              <a class="footer-link" href="locations.html">Locations</a>
+              <span class="footer-link">support@gamestob.id</span>
+            </div>
+          </section>
+
+          <section class="footer-level-card">
+            <span class="eyebrow">Player Support</span>
+            <h3>Ready for your next session?</h3>
+            <p>Daily help desk, secure payment flow, and instant digital key delivery for your next game night.</p>
+            <a class="footer-cta" href="catalog.html">Browse Deals</a>
+          </section>
+        </div>
+
+        <div class="footer-console" aria-label="Popular categories">
+          <span class="console-label">Now Loading</span>
+          <div class="footer-genre-track">
+            <span>Action RPG</span>
+            <span>Racing</span>
+            <span>Horror</span>
+            <span>Strategy</span>
+            <span>Co-op</span>
+            <span>Indie</span>
+            <span>Fighting</span>
+            <span>DLC</span>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© 2026 gameStoB. Built for digital game collectors.</span>
+          <div class="footer-bottom-links">
+            <a href="purchase.html">Checkout</a>
+            <a href="locations.html">Stores</a>
+            <a href="about.html">Community</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

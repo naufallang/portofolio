@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Muhammad Naufal Hadianto — Portfolio</title>
+<meta name="description" content="Computer Science and Data Science student at BINUS University. Projects, certificates, and contact.">
+<meta name="theme-color" content="#EEF1F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121722" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Muhammad Naufal Hadianto — Portfolio">
+<meta property="og:description" content="Computer Science and Data Science student at BINUS University. Projects, certificates, and contact.">
+<meta property="og:image" content="assets/images/column-profiles-for-the-iris-dataset.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF1F4; --surface:#FFFFFF; --ink:#18212F; --muted:#5E6878; --line:#D3D9E1;
+  --accent:#2E45C8; --accent-soft:#DCE3FA; --mint:#D7EEE4; --mint-ink:#1F6B4E;
+  --display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121722; --surface:#1A2130; --ink:#E7EBF2; --muted:#98A2B3; --line:#2A3345;
+    --accent:#8EA2FF; --accent-soft:#252F4D; --mint:#1C3A30; --mint-ink:#86D9B4;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121722; --surface:#1A2130; --ink:#E7EBF2; --muted:#98A2B3; --line:#2A3345;
+  --accent:#8EA2FF; --accent-soft:#252F4D; --mint:#1C3A30; --mint-ink:#86D9B4;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth; scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px); -webkit-text-size-adjust:100%}
+body{margin:0; background:var(--bg); color:var(--ink); font:400 1.0625rem/1.6 var(--body)}
+img{max-width:100%; display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+.wrap{width:min(1120px, 100% - 2.5rem); margin-inline:auto}
+
+/* header */
+header.top{position:sticky; top:env(safe-area-inset-top,0px); z-index:10; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid transparent}
+header.top.scrolled{border-bottom-color:var(--line)}
+.top .wrap{display:flex; align-items:center; justify-content:space-between; height:64px}
+.mark{font:700 1.25rem/1 var(--display); text-decoration:none; letter-spacing:-.02em}
+.top nav{display:flex; gap:1.5rem}
+.top nav a{text-decoration:none; color:var(--muted); font-weight:500; font-size:.95rem}
+.top nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:clamp(3.5rem, 9vw, 6.5rem) 0 clamp(3rem, 6vw, 4.5rem)}
+.hero h1{font-family:var(--display); font-weight:700; font-variation-settings:"wdth" 90; font-size:clamp(2.5rem, 6.2vw, 4.75rem); line-height:1.02; letter-spacing:-.03em; margin:0; max-width:14ch}
+.hero .role{font-size:clamp(1.1rem, 2vw, 1.35rem); color:var(--muted); margin:1rem 0 0; font-weight:500}
+@media (prefers-reduced-motion:no-preference){
+  .hero > *{opacity:0; transform:translateY(10px); animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero > *:nth-child(2){animation-delay:.08s} .hero > *:nth-child(3){animation-delay:.16s}
+  @keyframes rise{to{opacity:1; transform:none}}
+}
+.hero-foot{max-width:34rem; margin-top:clamp(1.75rem,4vw,2.75rem)}
+.hero-foot p{margin:0; font-size:1.2rem; line-height:1.55}
+.facts{margin:0; display:grid; grid-template-columns:auto auto; gap:.35rem 1.25rem; font-size:.95rem}
+.facts dt{color:var(--muted)} .facts dd{margin:0; font-weight:500}
+.actions{display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1.75rem}
+.btn{display:inline-flex; align-items:center; gap:.5rem; padding:.75rem 1.2rem; border-radius:999px; font-weight:600; text-decoration:none; border:1.5px solid var(--ink); font-size:.98rem}
+.btn.primary{background:var(--ink); color:var(--bg)}
+.btn:hover{transform:translateY(-1px)}
+
+/* sections */
+section.block{padding:clamp(3.5rem,8vw,6rem) 0; border-top:1px solid var(--line)}
+.sec-head{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,26rem); gap:1.5rem 3rem; align-items:end; margin-bottom:clamp(2rem,5vw,3.5rem)}
+.sec-head h2{font:700 clamp(2rem,5vw,3.4rem)/1 var(--display); letter-spacing:-.03em; margin:0; font-variation-settings:"wdth" 85}
+.sec-head p{margin:0; color:var(--muted)}
+
+/* about */
+.about{display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:3rem}
+.about p{margin:0 0 1rem; max-width:38rem}
+.about h3{font:600 1rem/1.3 var(--body); margin:0 0 .75rem}
+.tags{display:flex; flex-wrap:wrap; gap:.45rem; margin:0 0 1.75rem; padding:0; list-style:none}
+.tags li{padding:.3rem .75rem; border-radius:999px; background:var(--surface); border:1px solid var(--line); font-size:.9rem}
+.now{background:var(--mint); color:var(--mint-ink); border-radius:18px; padding:1.25rem 1.4rem}
+.now strong{display:block; font-family:var(--display); font-size:1.15rem; margin-bottom:.3rem; color:var(--ink)}
+.now p{margin:0; color:var(--ink); opacity:.85}
+
+/* projects */
+.project{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:clamp(2rem,5vw,4.5rem); align-items:center}
+.project + .project{margin-top:clamp(4rem,9vw,7rem)}
+.project.flip .p-text{order:2}
+.p-kind{color:var(--accent); font-weight:600; font-size:.95rem; margin:0 0 .5rem}
+.project h3{font:700 clamp(2rem,4.5vw,3rem)/1 var(--display); letter-spacing:-.03em; margin:0 0 1rem; font-variation-settings:"wdth" 85}
+.project p{margin:0 0 1rem; max-width:34rem}
+.p-list{margin:0 0 1.25rem; padding-left:1.1rem}
+.p-list li{margin-bottom:.35rem}
+.p-links{display:flex; gap:1.25rem; flex-wrap:wrap; margin-top:1.25rem}
+.p-links a{font-weight:600; text-underline-offset:4px; text-decoration-thickness:1.5px}
+
+/* wealthpath visual */
+.wp{background:#1a1d24; color:#EEF0F4; border-radius:22px; padding:clamp(1.2rem,3vw,2rem); box-shadow:0 30px 60px -30px rgba(10,15,30,.45)}
+.wp-bar{display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; font-size:.9rem}
+.wp-logo{display:flex; align-items:center; gap:.5rem; font-weight:700}
+.wp-logo i{width:26px; height:26px; border-radius:8px; background:#3DD68C; color:#1a1d24; display:grid; place-items:center; font-style:normal; font-size:.85rem}
+.wp-bar span{color:#9AA3B2}
+.wp-grid{display:grid; grid-template-columns:1fr 1fr; gap:.75rem}
+.wp-tile{background:#242833; border-radius:14px; padding:1rem}
+.wp-tile small{color:#9AA3B2; font-size:.8rem; display:block}
+.wp-tile b{display:block; font:700 1.45rem/1.2 var(--display); margin:.2rem 0}
+.wp-tile em{font-style:normal; font-size:.8rem; color:#3DD68C}
+.wp-tile em.down{color:#FF8A7A}
+.wp-chart{grid-column:1 / -1}
+.wp-chart svg{width:100%; height:90px; margin-top:.5rem}
+.cap{font-size:.85rem; color:var(--muted); margin-top:.75rem}
+
+/* rekam tumbuh gallery */
+.gallery{display:flex; gap:.9rem; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:.75rem; scrollbar-width:thin}
+.gallery figure{flex:0 0 86%; margin:0; scroll-snap-align:start}
+.gallery img{border-radius:16px; aspect-ratio:16/9; object-fit:cover; width:100%; background:#2c5aa0}
+.wp-gallery .wp{aspect-ratio:16/9; display:flex; flex-direction:column; justify-content:center; padding:clamp(.8rem,2.2vw,1.4rem); box-shadow:none}
+.wp-gallery .wp-grid{gap:.5rem} .wp-gallery .wp-tile{padding:.6rem .8rem} .wp-gallery .wp-tile b{font-size:clamp(1rem,2vw,1.3rem)}
+.wp-gallery .wp-bar{margin-bottom:.6rem} .wp-gallery .wp-chart svg{height:clamp(30px,5vw,56px); margin-top:.2rem}
+.wp-gallery img{object-fit:contain; background:#0b0e13}
+.gallery figcaption{font-size:.88rem; color:var(--muted); margin-top:.5rem}
+.g-nav{display:flex; gap:.5rem; margin-top:.5rem}
+.g-nav button{width:40px; height:40px; border-radius:50%; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); cursor:pointer; font-size:1rem}
+.g-nav button:hover{border-color:var(--ink)}
+
+/* certificates */
+.certs{list-style:none; margin:0; padding:0; border-top:1px solid var(--line)}
+.certs li{border-bottom:1px solid var(--line)}
+.cert{display:grid; grid-template-columns:132px minmax(0,1fr) auto; gap:1.5rem; align-items:center; padding:1.25rem 0; width:100%; background:none; border:0; color:inherit; font:inherit; text-align:left; cursor:pointer}
+.cert img{border-radius:8px; border:1px solid var(--line); aspect-ratio:1.414; object-fit:cover; width:100%}
+.cert h3{font:650 1.3rem/1.2 var(--display); margin:0 0 .25rem; letter-spacing:-.01em}
+.cert p{margin:0; color:var(--muted); font-size:.95rem}
+.cert .when{color:var(--muted); font-size:.95rem; white-space:nowrap}
+.cert:hover h3{color:var(--accent)}
+dialog{border:0; padding:0; border-radius:16px; max-width:min(960px, 94vw); background:var(--surface); color:var(--ink)}
+dialog::backdrop{background:rgba(10,14,22,.7)}
+dialog img{width:100%}
+.dlg-bar{display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:.85rem 1.1rem}
+.dlg-bar button{border:0; background:var(--accent-soft); color:var(--ink); border-radius:999px; padding:.45rem .95rem; font:600 .9rem var(--body); cursor:pointer}
+
+/* contact */
+.contact h2{font:750 clamp(2.6rem,8vw,6rem)/.95 var(--display); letter-spacing:-.035em; margin:0 0 1.5rem; font-variation-settings:"wdth" 80; max-width:12ch}
+.contact-links{display:flex; flex-wrap:wrap; gap:.75rem}
+.empty{color:var(--muted)}
+footer{padding:2rem 0 2.5rem; color:var(--muted); font-size:.9rem; border-top:1px solid var(--line)}
+footer .wrap{display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap}
+.theme-btn{background:none; border:1px solid var(--line); color:var(--muted); border-radius:999px; padding:.3rem .8rem; font:inherit; cursor:pointer}
+
+@media (max-width:820px){
+  .top nav{gap:1rem} .top nav a.hide-sm{display:none}
+  .hero-foot,.sec-head,.about,.project{grid-template-columns:1fr}
+  .project.flip .p-text{order:0}
+  .cert{grid-template-columns:96px minmax(0,1fr); gap:1rem}
+  .cert .when{grid-column:2; margin-top:-.75rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} .btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="mark" href="#">Gp</a>
+    <nav aria-label="Main">
+      <a href="#about" class="hide-sm">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" aria-labelledby="name">
+    <h1 id="name">Muhammad Naufal Hadianto</h1>
+    <p class="role">Computer Science &amp; Data Science student at BINUS University</p>
+    <div class="hero-foot">
+      <div>
+        <p>I build web applications and enjoy problems where data has to be turned into something people can actually use. Currently open to internship opportunities.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="about-h">About</h2>
+      </div>
+      <div class="about">
+        <div>
+          <p>I'm a student at the School of Computer Science, BINUS University, studying computer science and data science.</p>
+          <p>My projects range from a personal finance platform built for a human-computer interaction course, to a browser-based tool that profiles any CSV dataset, to a child growth tracking app concept validated through interviews with parents. I care about the people on the other side of the screen as much as the code behind it.</p>
+        </div>
+        <div>
+          <h3>Tools I've worked with</h3>
+          <ul class="tags">
+            <li>JavaScript</li><li>TypeScript</li><li>React</li><li>HTML &amp; CSS</li><li>TanStack Router</li><li>Tailwind CSS</li><li>Vite</li><li>Firebase</li><li>Vercel</li>
+          </ul>
+          <h3>Ways I work</h3>
+          <ul class="tags">
+            <li>Exploratory data analysis</li><li>Data visualization</li><li>UI design in Figma</li><li>User interviews</li><li>Prototyping</li><li>Team projects</li>
+          </ul>
+          <div class="now">
+            <strong>Currently researching</strong>
+            <p>How well question answering over financial tables holds up when documents come from noisy OCR.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="projects" aria-labelledby="projects-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="projects-h">Projects</h2>
+        <p>Web apps, websites, a data tool, and a product prototype, from coursework and personal projects.</p>
+      </div>
+
+      <article class="project">
+        <div class="p-text">
+          <p class="p-kind">Web app, group project</p>
+          <h3>WealthPath</h3>
+          <p>A personal finance platform that puts budgeting, net worth, and expert advice in one place. Built for a human-computer interaction course and deployed on Vercel.</p>
+          <ul class="p-list">
+            <li>Record income and expenses, with weekly, monthly, and yearly trends</li>
+            <li>Set monthly budgets per category and track what's left in real time</li>
+            <li>Track assets like property, gold, stocks, and cash to see net worth</li>
+            <li>Book paid sessions with certified financial advisors and chat live</li>
+          </ul>
+          <ul class="tags"><li>React</li><li>TypeScript</li><li>TanStack Router</li><li>Vite</li><li>Tailwind CSS</li><li>Firebase</li></ul>
+          <div class="p-links">
+            <a href="https://wealthpathportfolio-main.vercel.app/" target="_blank" rel="noopener">Open live site</a>
+          </div>
+        </div>
+        <div>
+          <div class="gallery wp-gallery" tabindex="0" aria-label="WealthPath screens">
+            <figure><div class="wp" role="img" aria-label="Preview of the WealthPath dashboard showing balance, income, expenses, and total assets">
+            <div class="wp-bar"><div class="wp-logo"><i>W</i>WealthPath</div><span>This month</span></div>
+            <div class="wp-grid">
+              <div class="wp-tile"><small>Total balance</small><b>Rp 24,5jt</b><em>+Rp 1,2jt this month</em></div>
+              <div class="wp-tile"><small>Total assets</small><b>Rp 412jt</b><em>+3%</em></div>
+              <div class="wp-tile"><small>Income</small><b>Rp 8,5jt</b><em>+5,2%</em></div>
+              <div class="wp-tile"><small>Expenses</small><b>Rp 5,2jt</b><em class="down">−2,1%</em></div>
+              <div class="wp-tile wp-chart"><small>Net worth trend</small>
+                <svg viewBox="0 0 300 90" preserveAspectRatio="none" aria-hidden="true">
+                  <defs><linearGradient id="g" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3DD68C" stop-opacity=".35"/><stop offset="1" stop-color="#3DD68C" stop-opacity="0"/></linearGradient></defs>
+                  <path d="M0 72 L30 66 L60 69 L90 58 L120 60 L150 48 L180 50 L210 38 L240 34 L270 24 L300 18 L300 90 L0 90Z" fill="url(#g)"/>
+                  <path d="M0 72 L30 66 L60 69 L90 58 L120 60 L150 48 L180 50 L210 38 L240 34 L270 24 L300 18" fill="none" stroke="#3DD68C" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
+                </svg>
+              </div>
+            </div>
+          </div><figcaption>Dashboard summary (sample data from the landing page)</figcaption></figure>
+            <figure><img src="assets/images/wealthpath-section-explaining-three-steps-record.jpg" alt="WealthPath section explaining three steps: record transactions, manage assets, consult an expert" loading="lazy"><figcaption>How it works in three steps</figcaption></figure>
+            <figure><img src="assets/images/list-of-certified-financial-advisors-with.jpg" alt="List of certified financial advisors with their specialties" loading="lazy"><figcaption>Certified advisors, from Rp 150rb per session</figcaption></figure>
+            <figure><img src="assets/images/wealthpath-sign-in-screen-with-google.jpg" alt="WealthPath sign-in screen with Google and email login" loading="lazy"><figcaption>Sign in with Google or email (Firebase Auth)</figcaption></figure>
+          </div>
+          <div class="g-nav">
+            <button type="button" data-dir="-1" aria-label="Previous screen">←</button>
+            <button type="button" data-dir="1" aria-label="Next screen">→</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="project flip">
+        <div class="p-text">
+          <p class="p-kind">Data tool, personal project</p>
+          <h3>DataGlance</h3>
+          <p>A browser-based tool that profiles any CSV file in seconds. It infers column types, computes summary statistics, and visualizes distributions and relationships, so you can understand a new dataset before writing any analysis code.</p>
+          <ul class="p-list">
+            <li>Automatic type detection for numeric, categorical, date, and text columns</li>
+            <li>Mean, median, standard deviation, missing values, and outliers (1.5 × IQR) per column</li>
+            <li>Pearson correlation heatmap with automatic insights on strong pairs</li>
+            <li>Scatter plot with color grouping, plus a sortable data preview</li>
+            <li>Runs fully in the browser, so files are never uploaded</li>
+          </ul>
+          <ul class="tags"><li>JavaScript</li><li>SVG charts</li><li>Statistics</li><li>CSV parsing</li></ul>
+          <div class="p-links">
+            <a href="dataglance/" target="_blank" rel="noopener">Try it live</a>
+          </div>
+        </div>
+        <div>
+          <div class="gallery" tabindex="0" aria-label="DataGlance screens">
+            <figure><img src="assets/images/column-profiles-for-the-iris-dataset.jpg" alt="Column profiles for the Iris dataset with histograms" loading="lazy"><figcaption>Column profiles with distributions</figcaption></figure>
+            <figure><img src="assets/images/correlation-heatmap-for-numeric-columns.jpg" alt="Correlation heatmap for numeric columns" loading="lazy"><figcaption>Correlation heatmap and insights</figcaption></figure>
+            <figure><img src="assets/images/scatter-plot-of-sepal-length-vs.jpg" alt="Scatter plot of sepal length vs sepal width colored by species" loading="lazy"><figcaption>Scatter plot grouped by category</figcaption></figure>
+            <figure><img src="assets/images/upload-screen-with-drag-and-drop.jpg" alt="Upload screen with drag and drop" loading="lazy"><figcaption>Drag and drop a CSV, or try the sample dataset</figcaption></figure>
+          </div>
+          <div class="g-nav">
+            <button type="button" data-dir="-1" aria-label="Previous screen">←</button>
+            <button type="button" data-dir="1" aria-label="Next screen">→</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="p-text">
+          <p class="p-kind">Multi-page website</p>
+          <h3>gameStoB</h3>
+          <p>A digital game store website where players can browse, compare, and buy games and DLC. I designed the pages in Figma first, then built them with plain HTML, CSS, and JavaScript.</p>
+          <ul class="p-list">
+            <li>Five pages: home, catalog, checkout, about, and store locations</li>
+            <li>Catalog of 22 games and DLC with genre filters, live search, and sorting</li>
+            <li>Checkout with a live order summary and JavaScript validation for every field</li>
+            <li>Six store location concepts with direct links to Google Maps</li>
+            <li>Responsive layout with a slide-out mobile menu</li>
+          </ul>
+          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Figma</li></ul>
+          <div class="p-links">
+            <a href="gamestob/" target="_blank" rel="noopener">Open live site</a>
+          </div>
+        </div>
+        <div>
+          <div class="gallery" tabindex="0" aria-label="gameStoB screens">
+            <figure><img src="assets/images/gamestob-home-page-with-featured-game.jpg" alt="gameStoB home page with featured game" loading="lazy"><figcaption>Home page with featured titles</figcaption></figure>
+            <figure><img src="assets/images/catalog-with-genre-filters-and-game.jpg" alt="Catalog with genre filters and game cards" loading="lazy"><figcaption>Catalog with genre filters, search, and sorting</figcaption></figure>
+            <figure><img src="assets/images/checkout-form-with-live-order-summary.jpg" alt="Checkout form with live order summary" loading="lazy"><figcaption>Checkout with a live order summary</figcaption></figure>
+            <figure><img src="assets/images/checkout-form-showing-validation-errors.jpg" alt="Checkout form showing validation errors" loading="lazy"><figcaption>Form validation for card number, expiry, CVV, and terms</figcaption></figure>
+            <figure><img src="assets/images/store-location-cards.jpg" alt="Store location cards" loading="lazy"><figcaption>Store location concepts linked to Google Maps</figcaption></figure>
+          </div>
+          <div class="g-nav">
+            <button type="button" data-dir="-1" aria-label="Previous screen">←</button>
+            <button type="button" data-dir="1" aria-label="Next screen">→</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="project flip">
+        <div class="p-text">
+          <p class="p-kind">Mobile app concept, prototype</p>
+          <h3>Rekam Tumbuh</h3>
+          <p>An app that helps parents track the growth of children aged 0 to 5. The idea came from interviews: parents told us online parenting advice is contradictory, and tracking immunizations by hand is hard.</p>
+          <ul class="p-list">
+            <li>Growth charts for weight, height, and head size, compared with WHO standards</li>
+            <li>Reminders for immunizations and health check-ups</li>
+            <li>A daily journal for activities and milestones</li>
+            <li>Parenting tips from experts and consultations with doctors</li>
+          </ul>
+          <p>Aimed at urban parents aged 25 to 35, with a premium subscription and clinic partnerships as the business model. Supports SDG 3, Good Health and Well-Being.</p>
+        </div>
+        <div>
+          <div class="gallery" tabindex="0" aria-label="Rekam Tumbuh prototype screens">
+            <figure><img src="assets/images/rekam-tumbuh-title-slide.jpg" alt="Rekam Tumbuh title slide" loading="lazy"><figcaption>Rekam Tumbuh</figcaption></figure>
+            <figure><img src="assets/images/child-profile-screen-with-a-growth.jpg" alt="Child profile screen with a growth chart" loading="lazy"><figcaption>Growth chart compared with WHO standards</figcaption></figure>
+            <figure><img src="assets/images/calendar-screen-with-immunization-reminders.jpg" alt="Calendar screen with immunization reminders" loading="lazy"><figcaption>Immunization and check-up reminders</figcaption></figure>
+            <figure><img src="assets/images/daily-journal-screen-with-a-bar.jpg" alt="Daily journal screen with a bar chart" loading="lazy"><figcaption>Daily journal</figcaption></figure>
+            <figure><img src="assets/images/doctor-list-and-consultation-chat-screens.jpg" alt="Doctor list and consultation chat screens" loading="lazy"><figcaption>Expert tips and doctor consultations</figcaption></figure>
+          </div>
+          <div class="g-nav">
+            <button type="button" data-dir="-1" aria-label="Previous screen">←</button>
+            <button type="button" data-dir="1" aria-label="Next screen">→</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="p-text">
+          <p class="p-kind">Web app, personal project</p>
+          <h3>QuizByte</h3>
+          <p>A timed multiple-choice quiz for computer science students, covering programming fundamentals, data science, and web development. Every answer is followed by a short explanation, so the quiz works as a study tool, not just a test.</p>
+          <ul class="p-list">
+            <li>Four modes: three topics plus a mixed set drawn from all of them</li>
+            <li>20-second timer with speed bonus and streak points</li>
+            <li>Results screen with accuracy, average answer time, and a full answer review</li>
+            <li>Best score saved per topic, keyboard shortcuts, and dark mode</li>
+          </ul>
+          <ul class="tags"><li>JavaScript</li><li>HTML &amp; CSS</li><li>Local storage</li></ul>
+          <div class="p-links">
+            <a href="quizbyte/" target="_blank" rel="noopener">Play the quiz</a>
+          </div>
+        </div>
+        <div>
+          <div class="gallery" tabindex="0" aria-label="QuizByte screens">
+            <figure><img src="assets/images/topic-selection-screen.jpg" alt="Topic selection screen" loading="lazy"><figcaption>Choose a topic</figcaption></figure>
+            <figure><img src="assets/images/question-with-the-correct-answer-highlighted.jpg" alt="Question with the correct answer highlighted and an explanation" loading="lazy"><figcaption>Instant feedback with explanations</figcaption></figure>
+            <figure><img src="assets/images/results-screen-with-score-accuracy-and.jpg" alt="Results screen with score, accuracy, and review" loading="lazy"><figcaption>Results and answer review</figcaption></figure>
+          </div>
+          <div class="g-nav">
+            <button type="button" data-dir="-1" aria-label="Previous screen">←</button>
+            <button type="button" data-dir="1" aria-label="Next screen">→</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="block" id="certificates" aria-labelledby="cert-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="cert-h">Certificates</h2>
+        <p>Select one to view the full certificate.</p>
+      </div>
+      <ul class="certs">
+        <li><button class="cert" type="button" data-img="assets/images/intro-to-programming-onetwocode-indonesia.jpg" data-title="Intro To Programming, Onetwocode Indonesia">
+          <img src="assets/images/intro-to-programming-onetwocode-indonesia.jpg" alt="" loading="lazy">
+          <div><h3>Intro To Programming</h3><p>Onetwocode Indonesia, Jakarta. Completed the introductory programming course.</p></div>
+          <span class="when">Apr – May 2025</span>
+        </button></li>
+        <li><button class="cert" type="button" data-img="assets/images/adaptability-and-trend-awareness-binus-university.jpg" data-title="Adaptability &amp; Trend Awareness, BINUS University">
+          <img src="assets/images/adaptability-and-trend-awareness-binus-university.jpg" alt="" loading="lazy">
+          <div><h3>Adaptability &amp; Trend Awareness</h3><p>BINUS University. Participant in the Social Media Content Production Soft Skill Series.</p></div>
+          <span class="when">Mar 2025</span>
+        </button></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block contact" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <h2 id="contact-h">Let's work on something together.</h2>
+      <div class="contact-links" id="contact-links"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Muhammad Naufal Hadianto</span>
+    <button class="theme-btn" id="theme-btn" type="button">Switch theme</button>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <div class="dlg-bar"><strong id="dlg-title"></strong><button type="button" id="dlg-close">Close</button></div>
+  <img id="dlg-img" alt="">
+</dialog>
+
+<script>
+/* ===== Fill in your contact details here. Leave a field empty to hide it. ===== */
+const CONTACT = {
+  email: "",      // e.g. "nama@email.com"
+  github: "https://github.com/naufallang",
+  linkedin: "",   // e.g. "https://www.linkedin.com/in/username"
+  cv: ""          // e.g. "cv.pdf" (put the PDF in this folder) or a Google Drive link
+};
+
+(function(){
+  const box = document.getElementById('contact-links');
+  const items = [
+    CONTACT.email && {label:'Email me', href:'mailto:'+CONTACT.email, primary:true},
+    CONTACT.github && {label:'GitHub', href:CONTACT.github},
+    CONTACT.linkedin && {label:'LinkedIn', href:CONTACT.linkedin},
+    CONTACT.cv && {label:'Download CV', href:CONTACT.cv}
+  ].filter(Boolean);
+  if(!items.length){ box.innerHTML = '<p class="empty">Contact details coming soon.</p>'; return; }
+  items.forEach(i=>{
+    const a=document.createElement('a'); a.className='btn'+(i.primary?' primary':''); a.href=i.href; a.textContent=i.label;
+    if(!i.href.startsWith('mailto:')){a.target='_blank'; a.rel='noopener'}
+    box.appendChild(a);
+  });
+})();
+
+const header=document.getElementById('top');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>8),{passive:true});
+
+document.querySelectorAll('.g-nav button').forEach(b=>b.addEventListener('click',()=>{
+  const g=b.closest('.g-nav').previousElementSibling;
+  const w=g.querySelector('figure').getBoundingClientRect().width+14;
+  g.scrollBy({left:w*Number(b.dataset.dir),behavior:'smooth'});
+}));
+
+const dlg=document.getElementById('dlg');
+document.querySelectorAll('.cert').forEach(c=>c.addEventListener('click',()=>{
+  document.getElementById('dlg-img').src=c.dataset.img;
+  document.getElementById('dlg-img').alt='Certificate: '+c.dataset.title;
+  document.getElementById('dlg-title').textContent=c.dataset.title;
+  dlg.showModal();
+}));
+document.getElementById('dlg-close').addEventListener('click',()=>dlg.close());
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+
+const root=document.documentElement;
+try{const t=localStorage.getItem('theme'); if(t) root.dataset.theme=t;}catch(e){}
+document.getElementById('theme-btn').addEventListener('click',()=>{
+  const cur=root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  const next=cur==='dark'?'light':'dark'; root.dataset.theme=next;
+  try{localStorage.setItem('theme',next)}catch(e){}
+});
+</script>
+</body>
+</html>
