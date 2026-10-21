@@ -4,6 +4,7 @@ Static portfolio site, ready to deploy on Vercel. No build step.
 
 ```
 index.html        portfolio home
+projects/         one page per project
 assets/images/    screenshots and certificates
 quizbyte/         QuizByte (tech quiz)
 dataglance/       DataGlance (CSV profiler)
@@ -11,10 +12,12 @@ gamestob/         gameStoB (game store website)
 vercel.json       Vercel settings (clean URLs, caching)
 ```
 
-## Before deploying
+## Edit your details
 
-Open `index.html`, search for `const CONTACT`, and fill in email, GitHub, LinkedIn, and CV.
-Empty fields are hidden automatically. To host your CV here, save it as `cv.pdf` in this folder and set `cv: "cv.pdf"`.
+Open `assets/js/config.js` and fill in email, LinkedIn, Instagram, CV, photo, and GPA.
+Empty fields are hidden automatically. Put files like `cv.pdf` in the repo root and a photo in `assets/images/`.
+
+Project pages live in `projects/`. Shared styles are in `assets/css/site.css` and scripts in `assets/js/site.js`.
 
 ## Deploy with the Vercel CLI (from the VS Code terminal)
 

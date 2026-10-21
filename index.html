@@ -4,554 +4,167 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Muhammad Naufal Hadianto — Portfolio</title>
-<meta name="description" content="Computer Science and Data Science student at BINUS University. Web apps, a data tool, and product prototypes.">
-<meta name="theme-color" content="#EEF1F4" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#121722" media="(prefers-color-scheme: dark)">
+<meta name="description" content="Computer Science and Data Science student at BINUS University. Web apps, data tools, and product prototypes.">
+<meta name="theme-color" content="#0A0B0E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Muhammad Naufal Hadianto — Portfolio">
-<meta property="og:description" content="Computer Science and Data Science student at BINUS University. Web apps, a data tool, and product prototypes.">
+<meta property="og:description" content="Computer Science and Data Science student at BINUS University. Web apps, data tools, and product prototypes.">
 <meta property="og:image" content="assets/images/column-profiles-for-the-iris-dataset.jpg">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#EEF1F4; --surface:#FFFFFF; --ink:#18212F; --muted:#5B6576; --line:#D6DCE4; --line-strong:#B9C2CE;
-  --accent:#2E45C8; --accent-ink:#FFFFFF; --accent-soft:#E2E7FB;
-  --mint:#D7EEE4; --mint-ink:#1F6B4E; --status:#1E9E66;
-  --chrome:#E7EBF0; --screen:#0B0E13;
-  --display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
-  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --gutter:clamp(1rem, 4vw, 2.5rem);
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#11161F; --surface:#18202C; --ink:#E7EBF2; --muted:#9AA4B4; --line:#283244; --line-strong:#3A4659;
-    --accent:#93A5FF; --accent-ink:#0F1530; --accent-soft:#232D4E;
-    --mint:#18362C; --mint-ink:#8EDDB9; --status:#4FD39A;
-    --chrome:#202A38; --screen:#0B0E13;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#11161F; --surface:#18202C; --ink:#E7EBF2; --muted:#9AA4B4; --line:#283244; --line-strong:#3A4659;
-  --accent:#93A5FF; --accent-ink:#0F1530; --accent-soft:#232D4E;
-  --mint:#18362C; --mint-ink:#8EDDB9; --status:#4FD39A;
-  --chrome:#202A38; --screen:#0B0E13;
-}
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-behavior:smooth; scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px); -webkit-text-size-adjust:100%}
-body{margin:0; background:var(--bg); color:var(--ink); font:400 1.0625rem/1.6 var(--body); -webkit-font-smoothing:antialiased}
-img{max-width:100%; display:block}
-a{color:inherit}
-button{font:inherit; color:inherit}
-:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:6px}
-.wrap{width:min(1160px, 100% - 2*var(--gutter)); margin-inline:auto}
-.visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
-
-/* ---------- header ---------- */
-.top{position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter:saturate(1.4) blur(12px); -webkit-backdrop-filter:saturate(1.4) blur(12px); border-bottom:1px solid transparent; transition:border-color .2s}
-.top.scrolled{border-bottom-color:var(--line)}
-.top .wrap{display:flex; align-items:center; justify-content:space-between; gap:1rem; height:64px}
-.mark{display:inline-grid; place-items:center; width:38px; height:38px; border-radius:11px; background:var(--ink); color:var(--bg); font:700 1rem/1 var(--display); letter-spacing:-.03em; text-decoration:none}
-.nav{display:flex; align-items:center; gap:.25rem}
-.nav a{position:relative; text-decoration:none; color:var(--muted); font-weight:500; font-size:.95rem; padding:.45rem .7rem; border-radius:999px}
-.nav a:hover{color:var(--ink)}
-.nav a[aria-current="true"]{color:var(--ink); background:var(--surface); box-shadow:inset 0 0 0 1px var(--line)}
-
-/* ---------- hero ---------- */
-.hero{padding:clamp(3rem, 8vw, 6rem) 0 clamp(2.5rem, 5vw, 3.5rem)}
-.hero-grid{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:2rem 3rem; align-items:end}
-.hero h1{font-family:var(--display); font-weight:720; font-variation-settings:"wdth" 84, "opsz" 96; font-size:clamp(2.9rem, 7.6vw, 6.25rem); line-height:.95; letter-spacing:-.04em; margin:0}
-.hero h1 span{display:block}
-.hero .role{font:500 clamp(1.1rem, 2vw, 1.35rem)/1.4 var(--body); color:var(--muted); margin:1.1rem 0 0}
-.hero .intro{max-width:34rem; margin:1.5rem 0 0; font-size:1.125rem}
-.hero-side{display:grid; gap:.9rem; justify-items:start; padding-bottom:.35rem}
-.status{display:inline-flex; align-items:center; gap:.55rem; font-weight:500; font-size:.95rem; padding:.45rem .85rem .45rem .7rem; border-radius:999px; background:var(--surface); box-shadow:inset 0 0 0 1px var(--line)}
-.status i{width:8px; height:8px; border-radius:50%; background:var(--status); box-shadow:0 0 0 4px color-mix(in srgb, var(--status) 20%, transparent)}
-.actions{display:flex; flex-wrap:wrap; gap:.6rem}
-.btn{display:inline-flex; align-items:center; gap:.5rem; padding:.72rem 1.15rem; border-radius:999px; font-weight:600; font-size:.97rem; text-decoration:none; border:1.5px solid var(--ink); background:transparent; cursor:pointer; white-space:nowrap}
-.btn.primary{background:var(--ink); color:var(--bg)}
-.btn.small{padding:.55rem .95rem; font-size:.92rem}
-.btn:hover{background:var(--ink); color:var(--bg)}
-.btn.primary:hover{background:var(--accent); border-color:var(--accent); color:var(--accent-ink)}
-.btn svg{width:16px; height:16px; flex:none}
-
-/* work strip: the five projects, shown as their own screens */
-.strip{margin-top:clamp(2.5rem, 6vw, 4rem); display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:clamp(.6rem, 1.4vw, 1rem); list-style:none; padding:0}
-.strip a{display:block; text-decoration:none; border-radius:14px}
-.strip .cover{aspect-ratio:16/10; border-radius:12px; overflow:hidden; background:var(--screen); box-shadow:0 0 0 1px var(--line)}
-.strip img{width:100%; height:100%; object-fit:cover; object-position:top center; transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.strip a:hover img{transform:scale(1.04)}
-.strip b{display:block; font:650 1rem/1.25 var(--display); letter-spacing:-.01em; margin-top:.65rem}
-.strip small{display:block; color:var(--muted); font-size:.85rem; margin-top:.1rem}
-@media (prefers-reduced-motion:no-preference){
-  .hero h1 span, .hero .role, .hero .intro, .hero-side, .strip li{opacity:0; transform:translateY(14px); animation:rise .75s cubic-bezier(.2,.7,.2,1) forwards}
-  .hero h1 span:nth-child(2){animation-delay:.06s}
-  .hero .role{animation-delay:.14s} .hero .intro{animation-delay:.2s} .hero-side{animation-delay:.26s}
-  .strip li:nth-child(1){animation-delay:.34s} .strip li:nth-child(2){animation-delay:.4s} .strip li:nth-child(3){animation-delay:.46s} .strip li:nth-child(4){animation-delay:.52s} .strip li:nth-child(5){animation-delay:.58s}
-  @keyframes rise{to{opacity:1; transform:none}}
-}
-
-/* ---------- sections ---------- */
-.section{padding:clamp(3.5rem, 8vw, 6rem) 0; border-top:1px solid var(--line)}
-.section-head{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,25rem); gap:1rem 3rem; align-items:end; margin-bottom:clamp(1.75rem, 4vw, 2.75rem)}
-.section-head h2{font:700 clamp(2rem, 4.4vw, 3rem)/1 var(--display); font-variation-settings:"wdth" 88; letter-spacing:-.035em; margin:0}
-.section-head p{margin:0; color:var(--muted)}
-
-/* about */
-.about{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:clamp(2rem, 5vw, 4rem)}
-.about-text p{margin:0 0 1.1rem; max-width:36rem; font-size:1.125rem}
-.about-text p:first-child{font:500 clamp(1.3rem, 2.4vw, 1.6rem)/1.35 var(--display); letter-spacing:-.015em}
-.about h3{font:600 .95rem/1.3 var(--body); color:var(--muted); margin:0 0 .6rem}
-.tags{display:flex; flex-wrap:wrap; gap:.4rem; margin:0 0 1.6rem; padding:0; list-style:none}
-.tags li{padding:.28rem .7rem; border-radius:999px; background:var(--surface); box-shadow:inset 0 0 0 1px var(--line); font-size:.9rem; font-weight:500}
-.research{background:var(--mint); border-radius:18px; padding:1.15rem 1.3rem}
-.research strong{display:block; font:650 1.1rem/1.3 var(--display); color:var(--ink); margin-bottom:.25rem}
-.research p{margin:0; color:var(--ink); opacity:.82}
-
-/* projects */
-.projects{display:grid; gap:clamp(1rem, 2.5vw, 1.5rem)}
-.project{display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.28fr); grid-template-areas:"head viewer" "body viewer"; grid-template-rows:auto 1fr; gap:0 clamp(1.5rem, 4vw, 3.25rem); background:var(--surface); border-radius:26px; padding:clamp(1.25rem, 3vw, 2.25rem); box-shadow:inset 0 0 0 1px var(--line)}
-.p-head{grid-area:head}
-.p-body{grid-area:body}
-.viewer{grid-area:viewer; align-self:start; min-width:0}
-.p-kind{color:var(--accent); font-weight:600; font-size:.93rem; margin:0 0 .35rem}
-.project h3{font:700 clamp(1.85rem, 3.3vw, 2.5rem)/1 var(--display); font-variation-settings:"wdth" 88; letter-spacing:-.035em; margin:0 0 1rem}
-.p-body > p{margin:0 0 1rem}
-.features{margin:0 0 1.25rem; padding-left:1.1rem}
-.features li{margin-bottom:.3rem; padding-left:.2rem}
-.features li::marker{color:var(--accent)}
-.built{margin:0 0 1.4rem}
-.built dt{font-size:.88rem; color:var(--muted); font-weight:600; margin-bottom:.45rem}
-.built dd{margin:0}
-.built .tags{margin:0}
-.built .tags li{background:var(--bg); box-shadow:none}
-
-.frame{border-radius:14px; overflow:hidden; box-shadow:0 0 0 1px var(--line-strong); background:var(--screen)}
-.chrome{display:flex; align-items:center; gap:.75rem; height:34px; padding:0 .8rem; background:var(--chrome); border-bottom:1px solid var(--line)}
-.dots{display:flex; gap:6px}
-.dots i{width:10px; height:10px; border-radius:50%; background:var(--line-strong)}
-.url{flex:1; min-width:0; text-align:center; font-size:.78rem; color:var(--muted); background:var(--surface); border-radius:6px; padding:.12rem .6rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:22rem; margin-inline:auto}
-.screen{position:relative; display:block; width:100%; aspect-ratio:16/9; padding:0; border:0; background:var(--screen); cursor:zoom-in}
-.screen img{width:100%; height:100%; object-fit:contain; transition:opacity .25s}
-.screen.loading img{opacity:0}
-.v-foot{display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-top:.75rem}
-.v-cap{margin:0; font-size:.9rem; color:var(--muted); min-height:1.4em}
-.v-count{font-size:.85rem; color:var(--muted); white-space:nowrap; font-variant-numeric:tabular-nums}
-.thumbs{display:flex; gap:.5rem; margin-top:.7rem; overflow-x:auto; padding:3px; scrollbar-width:thin}
-.thumb{flex:0 0 auto; width:clamp(64px, 9vw, 92px); aspect-ratio:16/9; padding:0; border:0; border-radius:7px; overflow:hidden; background:var(--screen); cursor:pointer; opacity:.6; box-shadow:0 0 0 1px var(--line)}
-.thumb img{width:100%; height:100%; object-fit:cover}
-.thumb:hover{opacity:.9}
-.thumb[aria-pressed="true"]{opacity:1; box-shadow:0 0 0 2px var(--accent)}
-
-/* certificates */
-.certs{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:clamp(1rem, 2.5vw, 1.5rem); list-style:none; margin:0; padding:0}
-.cert{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:.3rem 1rem; width:100%; text-align:left; background:var(--surface); border:0; border-radius:22px; padding:.9rem .9rem 1.2rem; box-shadow:inset 0 0 0 1px var(--line); cursor:zoom-in}
-.cert .c-img{grid-column:1 / -1; aspect-ratio:1.414; border-radius:13px; overflow:hidden; margin-bottom:.8rem; background:var(--bg)}
-.cert img{width:100%; height:100%; object-fit:cover}
-.cert b{font:650 1.2rem/1.25 var(--display); letter-spacing:-.01em; padding-left:.3rem}
-.cert span{color:var(--muted); font-size:.93rem; padding-left:.3rem}
-.cert time{grid-column:2; grid-row:2; color:var(--muted); font-size:.9rem; white-space:nowrap; padding-right:.3rem}
-.cert:hover b{color:var(--accent)}
-
-/* contact */
-.contact h2{font:720 clamp(2.4rem, 6.4vw, 5rem)/.98 var(--display); font-variation-settings:"wdth" 84; letter-spacing:-.04em; margin:0 0 1.75rem; max-width:13ch}
-.contact-links{display:flex; flex-wrap:wrap; gap:.6rem}
-.empty{color:var(--muted); margin:0}
-
-footer{border-top:1px solid var(--line); padding:1.75rem 0 2.25rem; color:var(--muted); font-size:.9rem}
-footer .wrap{display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap}
-.foot-links{display:flex; gap:1.25rem; align-items:center}
-.foot-links a{text-decoration:none} .foot-links a:hover{color:var(--ink)}
-.theme-btn{background:none; border:0; padding:0; color:var(--muted); cursor:pointer}
-.theme-btn:hover{color:var(--ink)}
-
-/* lightbox */
-dialog{border:0; padding:0; background:transparent; max-width:min(1200px, 94vw); width:100%; color:#fff}
-dialog::backdrop{background:rgba(8,11,17,.88)}
-.lb-img{width:100%; max-height:80vh; object-fit:contain; border-radius:10px; background:var(--screen)}
-.lb-bar{display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-top:.8rem}
-.lb-cap{color:#D7DCE4; font-size:.95rem}
-.lb-close{flex:none; background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:.45rem 1rem; font-weight:600; cursor:pointer}
-.lb-close:hover{background:rgba(255,255,255,.22)}
-
-/* ---------- responsive ---------- */
-@media (max-width:960px){
-  .strip{grid-template-columns:repeat(5, minmax(150px, 1fr)); overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:.5rem; margin-right:calc(-1 * var(--gutter)); padding-right:var(--gutter)}
-  .strip li{scroll-snap-align:start}
-  .project{grid-template-columns:1fr; grid-template-areas:"head" "viewer" "body"; grid-template-rows:auto}
-  .viewer{margin-bottom:1.5rem}
-}
-@media (max-width:760px){
-  .hero-grid,.section-head,.about{grid-template-columns:1fr}
-  .hero-side{padding-bottom:0}
-  .certs{grid-template-columns:1fr}
-  .nav a.hide-sm{display:none}
-  .project{border-radius:22px}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .strip img,.screen img{transition:none}
-}
-</style>
+<link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
-<header class="top" id="top">
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
   <div class="wrap">
-    <a class="mark" href="#" aria-label="Back to top">Gp</a>
-    <nav class="nav" aria-label="Main">
-      <a href="#about" class="hide-sm">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#certificates">Certificates</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <a class="logo" href="#" aria-label="Muhammad Naufal Hadianto, home"><b>Gp</b><span>Naufal Hadianto</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><i aria-hidden="true"></i>Menu</button>
+    <ul class="menu" id="menu"><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#certificates">Certificates</a></li><li><a href="#journey">Journey</a></li><li><a href="#contact">Contact</a></li></ul>
   </div>
 </header>
 
-<main>
-  <section class="hero" aria-labelledby="name">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div>
-          <h1 id="name"><span>Muhammad Naufal</span><span>Hadianto</span></h1>
-          <p class="role">Computer Science &amp; Data Science student at BINUS University</p>
-          <p class="intro">I build web applications and enjoy problems where data has to be turned into something people can actually use.</p>
-        </div>
-        <div class="hero-side">
-          <span class="status"><i aria-hidden="true"></i>Open to internships</span>
-          <div class="actions">
-            <a class="btn primary" href="#projects">See my projects</a>
-            <a class="btn" href="#contact">Get in touch</a>
-          </div>
-        </div>
-      </div>
-
-      <ul class="strip" aria-label="Projects">
-        <li><a href="#wealthpath"><div class="cover"><img src="assets/images/wealthpath-sign-in-screen-with-google.jpg" alt=""></div><b>WealthPath</b><small>Personal finance web app</small></a></li>
-        <li><a href="#dataglance"><div class="cover"><img src="assets/images/column-profiles-for-the-iris-dataset.jpg" alt=""></div><b>DataGlance</b><small>CSV profiling tool</small></a></li>
-        <li><a href="#gamestob"><div class="cover"><img src="assets/images/gamestob-home-page-with-featured-game.jpg" alt=""></div><b>gameStoB</b><small>Game store website</small></a></li>
-        <li><a href="#rekam-tumbuh"><div class="cover"><img src="assets/images/rekam-tumbuh-title-slide.jpg" alt=""></div><b>Rekam Tumbuh</b><small>Child growth app concept</small></a></li>
-        <li><a href="#quizbyte"><div class="cover"><img src="assets/images/question-with-the-correct-answer-highlighted.jpg" alt=""></div><b>QuizByte</b><small>Tech quiz for students</small></a></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section" id="about" aria-labelledby="about-h">
-    <div class="wrap">
-      <div class="section-head"><h2 id="about-h">About</h2></div>
-      <div class="about">
-        <div class="about-text">
-          <p>I study computer science and data science at the School of Computer Science, BINUS University.</p>
-          <p>My projects range from a personal finance platform built for a human-computer interaction course, to a browser tool that profiles any CSV dataset, to a child growth tracking app validated through interviews with parents.</p>
-          <p>I care about the people on the other side of the screen as much as the code behind it, so I like starting with real users and real data.</p>
-        </div>
-        <div>
-          <h3>Tools I've worked with</h3>
-          <ul class="tags">
-            <li>JavaScript</li><li>TypeScript</li><li>React</li><li>HTML &amp; CSS</li><li>TanStack Router</li><li>Tailwind CSS</li><li>Vite</li><li>Firebase</li><li>Vercel</li><li>Figma</li>
-          </ul>
-          <h3>How I work</h3>
-          <ul class="tags">
-            <li>Exploratory data analysis</li><li>Data visualization</li><li>User interviews</li><li>Prototyping</li><li>Team projects</li>
-          </ul>
-          <div class="research">
-            <strong>Currently researching</strong>
-            <p>How well question answering over financial tables holds up when documents come from noisy OCR.</p>
-          </div>
-        </div>
+<main id="main">
+  <section class="hero wrap" aria-labelledby="hero-name">
+    <span class="status"><i aria-hidden="true"></i>Open to internships</span>
+    <h1 id="hero-name"><span>Muhammad Naufal</span><span>Hadianto<span class="dot">.</span></span></h1>
+    <div class="hero-row">
+      <p>Computer Science and Data Science student at <strong>BINUS University</strong>. I build web apps and data tools that turn messy information into something people can use.</p>
+      <div class="hero-meta">
+        <div class="where"><span>Based in <b>Indonesia</b></span><span><b data-clock>WIB</b> local time</span></div>
+        <div class="actions"><a class="btn primary" href="#projects">See my projects</a><a class="btn" href="#contact">Contact me</a></div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="projects" aria-labelledby="projects-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="projects-h">Projects</h2>
-        <p>Coursework and personal projects. Select a screenshot to see it full size.</p>
-      </div>
+  <div class="ticker" aria-label="Tools I use"><ul><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Python</li><li>TensorFlow</li><li>Firebase</li><li>Tailwind CSS</li><li>MLflow</li><li>Streamlit</li><li>Figma</li><li>Vite</li><li>AWS SageMaker</li><li>R Markdown</li><li>Vercel</li><li aria-hidden="true">JavaScript</li><li aria-hidden="true">TypeScript</li><li aria-hidden="true">React</li><li aria-hidden="true">Python</li><li aria-hidden="true">TensorFlow</li><li aria-hidden="true">Firebase</li><li aria-hidden="true">Tailwind CSS</li><li aria-hidden="true">MLflow</li><li aria-hidden="true">Streamlit</li><li aria-hidden="true">Figma</li><li aria-hidden="true">Vite</li><li aria-hidden="true">AWS SageMaker</li><li aria-hidden="true">R Markdown</li><li aria-hidden="true">Vercel</li></ul></div>
 
-      <div class="projects">
-        <article class="project" id="wealthpath" aria-labelledby="wp-h">
-          <div class="p-head">
-            <p class="p-kind">Web app, group project</p>
-            <h3 id="wp-h">WealthPath</h3>
-          </div>
-          <div class="viewer" data-url="wealthpathportfolio-main.vercel.app">
-            <div class="frame"><div class="chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url"></span></div><button class="screen" type="button" aria-label="View screenshot full size"><img alt=""></button></div>
-            <div class="v-foot"><p class="v-cap" aria-live="polite"></p><span class="v-count"></span></div>
-            <div class="thumbs" role="group" aria-label="WealthPath screenshots">
-              <button class="thumb" type="button" data-cap="Sign in with Google or email"><img src="assets/images/wealthpath-sign-in-screen-with-google.jpg" alt="WealthPath sign-in screen with Google and email login"></button>
-              <button class="thumb" type="button" data-cap="How it works: record transactions, manage assets, consult an expert"><img src="assets/images/wealthpath-section-explaining-three-steps-record.jpg" alt="Three steps: record transactions, manage assets, consult an expert"></button>
-              <button class="thumb" type="button" data-cap="Certified financial advisors, from Rp 150rb per session"><img src="assets/images/list-of-certified-financial-advisors-with.jpg" alt="List of certified financial advisors with their specialties"></button>
-            </div>
-          </div>
-          <div class="p-body">
-            <p>A personal finance platform that puts budgeting, net worth, and expert advice in one place. Built for a human-computer interaction course and deployed on Vercel.</p>
-            <ul class="features">
-              <li>Income and expense tracking with weekly, monthly, and yearly trends</li>
-              <li>Monthly budgets per category with the remaining amount updated in real time</li>
-              <li>Asset tracking for property, gold, stocks, and cash to show net worth</li>
-              <li>Paid sessions with certified financial advisors, with live chat</li>
-            </ul>
-            <dl class="built"><dt>Built with</dt><dd><ul class="tags"><li>React</li><li>TypeScript</li><li>TanStack Router</li><li>Vite</li><li>Tailwind CSS</li><li>Firebase</li></ul></dd></dl>
-            <a class="btn primary small" href="https://wealthpathportfolio-main.vercel.app/" target="_blank" rel="noopener">Open live site</a>
-          </div>
-        </article>
-
-        <article class="project" id="dataglance" aria-labelledby="dg-h">
-          <div class="p-head">
-            <p class="p-kind">Data tool, personal project</p>
-            <h3 id="dg-h">DataGlance</h3>
-          </div>
-          <div class="viewer" data-url="naufalhadianto.vercel.app/dataglance">
-            <div class="frame"><div class="chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url"></span></div><button class="screen" type="button" aria-label="View screenshot full size"><img alt=""></button></div>
-            <div class="v-foot"><p class="v-cap" aria-live="polite"></p><span class="v-count"></span></div>
-            <div class="thumbs" role="group" aria-label="DataGlance screenshots">
-              <button class="thumb" type="button" data-cap="Column profiles with distributions and outliers"><img src="assets/images/column-profiles-for-the-iris-dataset.jpg" alt="Column profiles for the Iris dataset with histograms"></button>
-              <button class="thumb" type="button" data-cap="Correlation heatmap with automatic insights"><img src="assets/images/correlation-heatmap-for-numeric-columns.jpg" alt="Correlation heatmap for numeric columns"></button>
-              <button class="thumb" type="button" data-cap="Scatter plot grouped by category"><img src="assets/images/scatter-plot-of-sepal-length-vs.jpg" alt="Scatter plot of sepal length against sepal width, colored by species"></button>
-              <button class="thumb" type="button" data-cap="Drop in a CSV, or try the sample dataset"><img src="assets/images/upload-screen-with-drag-and-drop.jpg" alt="Upload screen with drag and drop"></button>
-            </div>
-          </div>
-          <div class="p-body">
-            <p>A browser tool that profiles any CSV file in seconds. It detects column types, computes summary statistics, and charts distributions and relationships, so you understand a dataset before writing analysis code.</p>
-            <ul class="features">
-              <li>Type detection for numeric, categorical, date, and text columns</li>
-              <li>Mean, median, standard deviation, missing values, and outliers (1.5 × IQR) per column</li>
-              <li>Pearson correlation heatmap that calls out strongly related pairs</li>
-              <li>Scatter plot with color grouping and a sortable data preview</li>
-              <li>Runs entirely in the browser, so files are never uploaded</li>
-            </ul>
-            <dl class="built"><dt>Built with</dt><dd><ul class="tags"><li>JavaScript</li><li>SVG charts</li><li>Statistics</li><li>CSV parsing</li></ul></dd></dl>
-            <a class="btn primary small" href="dataglance/" target="_blank" rel="noopener">Try it live</a>
-          </div>
-        </article>
-
-        <article class="project" id="gamestob" aria-labelledby="gs-h">
-          <div class="p-head">
-            <p class="p-kind">Multi-page website</p>
-            <h3 id="gs-h">gameStoB</h3>
-          </div>
-          <div class="viewer" data-url="naufalhadianto.vercel.app/gamestob">
-            <div class="frame"><div class="chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url"></span></div><button class="screen" type="button" aria-label="View screenshot full size"><img alt=""></button></div>
-            <div class="v-foot"><p class="v-cap" aria-live="polite"></p><span class="v-count"></span></div>
-            <div class="thumbs" role="group" aria-label="gameStoB screenshots">
-              <button class="thumb" type="button" data-cap="Home page with featured titles"><img src="assets/images/gamestob-home-page-with-featured-game.jpg" alt="gameStoB home page with a featured game"></button>
-              <button class="thumb" type="button" data-cap="Catalog with genre filters, search, and sorting"><img src="assets/images/catalog-with-genre-filters-and-game.jpg" alt="Catalog with genre filters and game cards"></button>
-              <button class="thumb" type="button" data-cap="Checkout with a live order summary"><img src="assets/images/checkout-form-with-live-order-summary.jpg" alt="Checkout form with live order summary"></button>
-              <button class="thumb" type="button" data-cap="Validation for card number, expiry date, CVV, and terms"><img src="assets/images/checkout-form-showing-validation-errors.jpg" alt="Checkout form showing validation messages"></button>
-              <button class="thumb" type="button" data-cap="Store locations linked to Google Maps"><img src="assets/images/store-location-cards.jpg" alt="Store location cards"></button>
-            </div>
-          </div>
-          <div class="p-body">
-            <p>A digital game store where players browse, compare, and buy games and DLC. I designed the pages in Figma first, then built them with plain HTML, CSS, and JavaScript.</p>
-            <ul class="features">
-              <li>Five pages: home, catalog, checkout, about, and store locations</li>
-              <li>Catalog of 22 games and DLC with genre filters, live search, and sorting</li>
-              <li>Checkout with a live order summary and validation on every field</li>
-              <li>Responsive layout with a slide-out mobile menu</li>
-            </ul>
-            <dl class="built"><dt>Built with</dt><dd><ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Figma</li></ul></dd></dl>
-            <a class="btn primary small" href="gamestob/" target="_blank" rel="noopener">Open live site</a>
-          </div>
-        </article>
-
-        <article class="project" id="rekam-tumbuh" aria-labelledby="rt-h">
-          <div class="p-head">
-            <p class="p-kind">Mobile app concept and prototype</p>
-            <h3 id="rt-h">Rekam Tumbuh</h3>
-          </div>
-          <div class="viewer" data-url="Prototype presentation">
-            <div class="frame"><div class="chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url"></span></div><button class="screen" type="button" aria-label="View screenshot full size"><img alt=""></button></div>
-            <div class="v-foot"><p class="v-cap" aria-live="polite"></p><span class="v-count"></span></div>
-            <div class="thumbs" role="group" aria-label="Rekam Tumbuh screens">
-              <button class="thumb" type="button" data-cap="Growth chart compared with WHO standards"><img src="assets/images/child-profile-screen-with-a-growth.jpg" alt="Child profile screen with a growth chart"></button>
-              <button class="thumb" type="button" data-cap="Immunization and check-up reminders"><img src="assets/images/calendar-screen-with-immunization-reminders.jpg" alt="Calendar screen with immunization reminders"></button>
-              <button class="thumb" type="button" data-cap="Daily journal for activities and milestones"><img src="assets/images/daily-journal-screen-with-a-bar.jpg" alt="Daily journal screen with a bar chart"></button>
-              <button class="thumb" type="button" data-cap="Expert tips and doctor consultations"><img src="assets/images/doctor-list-and-consultation-chat-screens.jpg" alt="Doctor list and consultation chat screens"></button>
-              <button class="thumb" type="button" data-cap="Rekam Tumbuh"><img src="assets/images/rekam-tumbuh-title-slide.jpg" alt="Rekam Tumbuh title slide"></button>
-            </div>
-          </div>
-          <div class="p-body">
-            <p>An app that helps parents track the growth of children aged 0 to 5. The idea came from interviews: parents said online parenting advice is contradictory and tracking immunizations by hand is hard.</p>
-            <ul class="features">
-              <li>Growth charts for weight, height, and head size against WHO standards</li>
-              <li>Reminders for immunizations and health check-ups</li>
-              <li>A daily journal for activities and milestones</li>
-              <li>Parenting tips from experts and consultations with doctors</li>
-            </ul>
-            <dl class="built"><dt>Scope</dt><dd><ul class="tags"><li>User interviews</li><li>Prototype</li><li>Business model</li><li>SDG 3</li></ul></dd></dl>
-          </div>
-        </article>
-
-        <article class="project" id="quizbyte" aria-labelledby="qb-h">
-          <div class="p-head">
-            <p class="p-kind">Web app, personal project</p>
-            <h3 id="qb-h">QuizByte</h3>
-          </div>
-          <div class="viewer" data-url="naufalhadianto.vercel.app/quizbyte">
-            <div class="frame"><div class="chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url"></span></div><button class="screen" type="button" aria-label="View screenshot full size"><img alt=""></button></div>
-            <div class="v-foot"><p class="v-cap" aria-live="polite"></p><span class="v-count"></span></div>
-            <div class="thumbs" role="group" aria-label="QuizByte screenshots">
-              <button class="thumb" type="button" data-cap="Instant feedback with an explanation for every answer"><img src="assets/images/question-with-the-correct-answer-highlighted.jpg" alt="Question with the correct answer highlighted and an explanation"></button>
-              <button class="thumb" type="button" data-cap="Choose a topic"><img src="assets/images/topic-selection-screen.jpg" alt="Topic selection screen"></button>
-              <button class="thumb" type="button" data-cap="Results with accuracy, answer time, and a full review"><img src="assets/images/results-screen-with-score-accuracy-and.jpg" alt="Results screen with score, accuracy, and review"></button>
-            </div>
-          </div>
-          <div class="p-body">
-            <p>A timed multiple-choice quiz for computer science students on programming, data science, and web development. Every answer comes with a short explanation, so it works as a study tool, not just a test.</p>
-            <ul class="features">
-              <li>Three topics plus a mixed set drawn from all of them</li>
-              <li>20-second timer with points for speed and answer streaks</li>
-              <li>Results with accuracy, average answer time, and a full review</li>
-              <li>Best score saved per topic, keyboard shortcuts, and dark mode</li>
-            </ul>
-            <dl class="built"><dt>Built with</dt><dd><ul class="tags"><li>JavaScript</li><li>HTML &amp; CSS</li><li>Local storage</li></ul></dd></dl>
-            <a class="btn primary small" href="quizbyte/" target="_blank" rel="noopener">Play the quiz</a>
-          </div>
-        </article>
+  <section class="section wrap" id="about" aria-labelledby="about-h">
+    <p class="sec-label"><b>01</b>About</p>
+    <h2 class="sec-title" id="about-h">A student developer who likes turning data into products.</h2>
+    <div class="about">
+      <figure class="portrait" style="margin:0"><div class="mono" aria-hidden="true">Gp</div><figcaption><span>Muhammad Naufal Hadianto</span><span>BINUS</span></figcaption></figure>
+      <div class="about-body">
+        <p class="lead">I'm Muhammad Naufal Hadianto, known as Gp, a Computer Science and Data Science student at the School of Computer Science, BINUS University.</p>
+        <p>I enjoy work that sits between software engineering and data: building interfaces people like using, and making sense of the data behind them. My projects include a personal finance platform, a browser tool that profiles CSV datasets, and a child growth app validated through interviews with parents.</p>
+        <p>For my undergraduate thesis, I'm researching how well question answering over financial tables holds up when documents come from noisy OCR.</p>
+        <dl class="stats">
+          <div><dt>Projects</dt><dd>5</dd></div>
+          <div><dt>Live demos</dt><dd>4</dd></div>
+          <div><dt>Certificates</dt><dd>2</dd></div>
+          <div data-gpa hidden><dt>GPA</dt><dd></dd></div>
+          <div><dt>Relevant courses</dt><dd>11</dd></div>
+        </dl>
       </div>
     </div>
   </section>
 
-  <section class="section" id="certificates" aria-labelledby="cert-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="cert-h">Certificates</h2>
-        <p>Select a certificate to see it full size.</p>
-      </div>
-      <ul class="certs">
-        <li><button class="cert" type="button" data-cap="Intro To Programming, Onetwocode Indonesia">
-          <div class="c-img"><img src="assets/images/intro-to-programming-onetwocode-indonesia.jpg" alt="Intro To Programming certificate from Onetwocode Indonesia" loading="lazy"></div>
-          <b>Intro To Programming</b><span>Onetwocode Indonesia, Jakarta</span><time datetime="2025-05">Apr – May 2025</time>
-        </button></li>
-        <li><button class="cert" type="button" data-cap="Adaptability &amp; Trend Awareness, BINUS University">
-          <div class="c-img"><img src="assets/images/adaptability-and-trend-awareness-binus-university.jpg" alt="Adaptability and Trend Awareness certificate from BINUS University" loading="lazy"></div>
-          <b>Adaptability &amp; Trend Awareness</b><span>BINUS University, Soft Skill Series</span><time datetime="2025-03">Mar 2025</time>
-        </button></li>
-      </ul>
-    </div>
+  <section class="section wrap" id="skills" aria-labelledby="skills-h">
+    <p class="sec-label"><b>02</b>Skills</p>
+    <h2 class="sec-title" id="skills-h">What I work with.</h2>
+    <div class="skills"><div class="skill"><h3><small>01</small>Software engineering</h3><p>Building and shipping web apps.</p><ul class="chips"><li>JavaScript</li><li>TypeScript</li><li>React</li><li>TanStack Router</li><li>Tailwind CSS</li><li>Vite</li><li>HTML &amp; CSS</li><li>Firebase</li><li>C</li><li>Git &amp; GitHub</li><li>Vercel</li></ul></div><div class="skill"><h3><small>02</small>AI and data</h3><p>Analysis, modeling, and deployment.</p><ul class="chips"><li>Python</li><li>Jupyter</li><li>TensorFlow / Keras</li><li>MLflow</li><li>Streamlit</li><li>AWS SageMaker</li><li>R Markdown</li><li>Data visualization</li></ul></div><div class="skill"><h3><small>03</small>Working with people</h3><p>Users, teams, and presentations.</p><ul class="chips"><li>Teamwork</li><li>User interviews</li><li>Presenting</li><li>Business validation</li><li>UI design in Figma</li><li>Prototyping</li></ul></div></div>
+    <div class="coursework"><h3>Relevant coursework</h3><ul><li>Data Structures</li><li>Deep Learning</li><li>Model Deployment</li><li>Text Mining</li><li>Data Mining and Visualization</li><li>Scientific Computing</li><li>Software Engineering</li><li>Network Security</li><li>Compilation Techniques</li><li>Research Methodology in Computer Science</li><li>Computational Biology</li></ul></div>
   </section>
 
-  <section class="section contact" id="contact" aria-labelledby="contact-h">
-    <div class="wrap">
-      <h2 id="contact-h">Let's work on something together.</h2>
-      <div class="contact-links" id="contact-links"></div>
+  <section class="section wrap" id="projects" aria-labelledby="projects-h">
+    <p class="sec-label"><b>03</b>Projects</p>
+    <h2 class="sec-title" id="projects-h">Things I've built.</h2>
+    <ul class="plist">
+      <li><a class="prow" href="projects/wealthpath.html">
+        <span class="n">01</span>
+        <span><h3>WealthPath</h3><span class="kind">Personal finance web app</span></span>
+        <span class="stack">React, TypeScript, TanStack Router, Vite</span>
+        <span class="thumb"><img src="assets/images/wealthpath-sign-in-screen-with-google.jpg" alt="" loading="lazy"></span>
+        <span class="go">View project</span>
+      </a></li>
+      <li><a class="prow" href="projects/dataglance.html">
+        <span class="n">02</span>
+        <span><h3>DataGlance</h3><span class="kind">CSV profiling tool</span></span>
+        <span class="stack">JavaScript, SVG charts, Statistics, CSV parsing</span>
+        <span class="thumb"><img src="assets/images/column-profiles-for-the-iris-dataset.jpg" alt="" loading="lazy"></span>
+        <span class="go">View project</span>
+      </a></li>
+      <li><a class="prow" href="projects/gamestob.html">
+        <span class="n">03</span>
+        <span><h3>gameStoB</h3><span class="kind">Game store website</span></span>
+        <span class="stack">HTML, CSS, JavaScript, Figma</span>
+        <span class="thumb"><img src="assets/images/gamestob-home-page-with-featured-game.jpg" alt="" loading="lazy"></span>
+        <span class="go">View project</span>
+      </a></li>
+      <li><a class="prow" href="projects/rekam-tumbuh.html">
+        <span class="n">04</span>
+        <span><h3>Rekam Tumbuh</h3><span class="kind">Child growth app concept</span></span>
+        <span class="stack">User interviews, Prototyping, Business model, SDG 3</span>
+        <span class="thumb"><img src="assets/images/rekam-tumbuh-title-slide.jpg" alt="" loading="lazy"></span>
+        <span class="go">View project</span>
+      </a></li>
+      <li><a class="prow" href="projects/quizbyte.html">
+        <span class="n">05</span>
+        <span><h3>QuizByte</h3><span class="kind">Tech quiz web app</span></span>
+        <span class="stack">JavaScript, HTML &amp; CSS, Local storage</span>
+        <span class="thumb"><img src="assets/images/question-with-the-correct-answer-highlighted.jpg" alt="" loading="lazy"></span>
+        <span class="go">View project</span>
+      </a></li>
+    </ul>
+  </section>
+
+  <section class="section wrap" id="certificates" aria-labelledby="certs-h">
+    <p class="sec-label"><b>04</b>Certificates</p>
+    <h2 class="sec-title" id="certs-h">Courses and recognition.</h2>
+    <ul class="certs">
+      <li><article class="cert">
+        <button class="cert-img" type="button" data-cap="Intro To Programming, Onetwocode Indonesia, Jakarta"><img src="assets/images/intro-to-programming-onetwocode-indonesia.jpg" alt="Intro To Programming certificate from Onetwocode Indonesia, Jakarta" loading="lazy"><span>View full</span></button>
+        <div class="cert-body">
+          <div class="cert-top"><b>Learning</b><span>Apr – May 2025</span></div>
+          <h3>Intro To Programming</h3><span class="issuer">Onetwocode Indonesia, Jakarta</span><p>Completed the Intro To Programming course held by Onetwocode Indonesia.</p>
+        </div>
+      </article></li>
+      <li><article class="cert">
+        <button class="cert-img" type="button" data-cap="Adaptability &amp; Trend Awareness, BINUS University"><img src="assets/images/adaptability-and-trend-awareness-binus-university.jpg" alt="Adaptability &amp; Trend Awareness certificate from BINUS University" loading="lazy"><span>View full</span></button>
+        <div class="cert-body">
+          <div class="cert-top"><b>Learning</b><span>Mar 2025</span></div>
+          <h3>Adaptability &amp; Trend Awareness</h3><span class="issuer">BINUS University</span><p>Participant in the Social Media Content Production Soft Skill Series.</p>
+        </div>
+      </article></li>
+    </ul>
+  </section>
+
+  <section class="section wrap" id="journey" aria-labelledby="journey-h">
+    <p class="sec-label"><b>05</b>Journey</p>
+    <h2 class="sec-title" id="journey-h">Where I've been.</h2>
+    <ol class="timeline">
+      <li><time>Now</time><div><h3>Computer Science &amp; Data Science</h3><div class="org">BINUS University, School of Computer Science</div><p>Coursework across software engineering, data structures, deep learning, model deployment, and text mining.</p></div><span class="tag">Education</span></li>
+      <li><time>2026</time><div><h3>Undergraduate thesis research</h3><div class="org">BINUS University</div><p>Studying how robust question answering over financial tables is when documents are digitized with noisy OCR.</p></div><span class="tag">Research</span></li>
+      <li><time>Apr – May 2025</time><div><h3>Intro To Programming</h3><div class="org">Onetwocode Indonesia, Jakarta</div><p>Completed an introductory programming course outside campus.</p></div><span class="tag">Course</span></li>
+    </ol>
+  </section>
+
+  <section class="contact wrap" id="contact" aria-labelledby="contact-h">
+    <p class="sec-label"><b>06</b>Contact</p>
+    <h2 id="contact-h">Let's build something together<span class="dot">.</span></h2>
+    <div class="contact-grid">
+      <div>
+        <a class="contact-mail" data-mail href="#">github.com/naufallang</a>
+        <div class="socials" data-socials></div>
+      </div>
+      <div class="contact-meta">
+        <span>Location<b>Indonesia</b></span>
+        <span>Timezone<b>WIB (UTC+7)</b></span>
+        <a class="btn primary" data-cv href="#" target="_blank" rel="noopener" hidden>Download CV</a>
+      </div>
     </div>
   </section>
 </main>
-
 <footer>
-  <div class="wrap">
-    <span>© 2026 Muhammad Naufal Hadianto</span>
-    <div class="foot-links">
-      <a href="#top">Back to top</a>
-      <button class="theme-btn" id="theme-btn" type="button">Dark mode</button>
-    </div>
-  </div>
+  <div class="wrap"><span>© <span data-year>2026</span> Muhammad Naufal Hadianto</span><a href="#main">Back to top</a></div>
 </footer>
-
-<dialog id="lightbox" aria-label="Full-size image">
-  <img class="lb-img" id="lb-img" alt="">
-  <div class="lb-bar"><span class="lb-cap" id="lb-cap"></span><button class="lb-close" type="button" id="lb-close">Close</button></div>
+<dialog class="lightbox" aria-label="Full-size image">
+  <img class="lb-img" alt="">
+  <div class="lb-bar"><span class="lb-cap"></span><button class="lb-close" type="button">Close</button></div>
 </dialog>
-
-<script>
-/* ===== Contact details: fill these in. Empty fields are hidden. ===== */
-const CONTACT = {
-  email: "",      // e.g. "nama@email.com"
-  github: "https://github.com/naufallang",
-  linkedin: "",   // e.g. "https://www.linkedin.com/in/username"
-  cv: ""          // e.g. "cv.pdf" (put the PDF in this folder) or a Google Drive link
-};
-
-(function renderContact(){
-  const box = document.getElementById('contact-links');
-  const items = [
-    CONTACT.email && {label:'Email me', href:'mailto:' + CONTACT.email, primary:true},
-    CONTACT.linkedin && {label:'LinkedIn', href:CONTACT.linkedin},
-    CONTACT.github && {label:'GitHub', href:CONTACT.github, primary:!CONTACT.email},
-    CONTACT.cv && {label:'Download CV', href:CONTACT.cv}
-  ].filter(Boolean);
-  if(!items.length){ box.innerHTML = '<p class="empty">Contact details will be added soon.</p>'; return; }
-  items.forEach(i => {
-    const a = document.createElement('a');
-    a.className = 'btn' + (i.primary ? ' primary' : '');
-    a.href = i.href; a.textContent = i.label;
-    if(!i.href.startsWith('mailto:')){ a.target = '_blank'; a.rel = 'noopener'; }
-    box.appendChild(a);
-  });
-})();
-
-/* header border + active section */
-const header = document.getElementById('top');
-addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 8), {passive:true});
-const links = [...document.querySelectorAll('.nav a')];
-const sections = links.map(a => document.querySelector(a.getAttribute('href')));
-if('IntersectionObserver' in window){
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(!e.isIntersecting) return;
-      links.forEach(a => a.getAttribute('href') === '#' + e.target.id ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current'));
-    });
-  }, {rootMargin:'-45% 0px -50% 0px'});
-  sections.forEach(s => s && io.observe(s));
-}
-
-/* lightbox */
-const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lb-img'), lbCap = document.getElementById('lb-cap');
-function openLightbox(src, alt, cap){ lbImg.src = src; lbImg.alt = alt; lbCap.textContent = cap; lb.showModal(); }
-document.getElementById('lb-close').addEventListener('click', () => lb.close());
-lb.addEventListener('click', e => { if(e.target === lb) lb.close(); });
-
-/* screenshot viewers */
-document.querySelectorAll('.viewer').forEach(v => {
-  const thumbs = [...v.querySelectorAll('.thumb')];
-  const screen = v.querySelector('.screen'), img = screen.querySelector('img');
-  const cap = v.querySelector('.v-cap'), count = v.querySelector('.v-count');
-  v.querySelector('.url').textContent = v.dataset.url;
-  let index = 0;
-  function show(i){
-    index = (i + thumbs.length) % thumbs.length;
-    const t = thumbs[index], src = t.querySelector('img').getAttribute('src');
-    thumbs.forEach((b, k) => b.setAttribute('aria-pressed', k === index));
-    if(img.getAttribute('src') !== src){
-      screen.classList.add('loading');
-      const next = new Image(); next.src = src;
-      const swap = () => { img.src = src; img.alt = t.querySelector('img').alt; screen.classList.remove('loading'); };
-      next.complete ? swap() : (next.onload = swap, next.onerror = swap);
-    }
-    cap.textContent = t.dataset.cap;
-    count.textContent = (index + 1) + ' of ' + thumbs.length;
-  }
-  thumbs.forEach((b, k) => b.addEventListener('click', () => show(k)));
-  v.addEventListener('keydown', e => {
-    if(e.key === 'ArrowRight'){ e.preventDefault(); show(index + 1); thumbs[index].focus(); }
-    if(e.key === 'ArrowLeft'){ e.preventDefault(); show(index - 1); thumbs[index].focus(); }
-  });
-  screen.addEventListener('click', () => openLightbox(img.src, img.alt, cap.textContent));
-  show(0);
-});
-
-/* certificates */
-document.querySelectorAll('.cert').forEach(c => c.addEventListener('click', () => {
-  const im = c.querySelector('img'); openLightbox(im.src, im.alt, c.dataset.cap);
-}));
-
-/* theme */
-const root = document.documentElement, themeBtn = document.getElementById('theme-btn');
-const isDark = () => (root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')) === 'dark';
-const label = () => { themeBtn.textContent = isDark() ? 'Light mode' : 'Dark mode'; };
-try{ const t = localStorage.getItem('theme'); if(t) root.dataset.theme = t; }catch(e){}
-themeBtn.addEventListener('click', () => {
-  root.dataset.theme = isDark() ? 'light' : 'dark';
-  try{ localStorage.setItem('theme', root.dataset.theme); }catch(e){}
-  label();
-});
-label();
-</script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
 </body>
 </html>
